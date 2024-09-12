@@ -1,0 +1,54 @@
+[15:41:47][D][binary_sensor:036]: 'Disable wake word': Sending state OFF
+
+[15:41:47][D][micro_wake_word:399]: Resetting buffers and probabilities
+[15:41:47][D][micro_wake_word:195]: State changed from IDLE to START_MICROPHONE
+
+[15:41:47][D][light:036]: 'led_top' Setting:
+[15:41:47][D][light:051]:   Brightness: 60%
+[15:41:47][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[15:41:47][D][light:109]:   Effect: 'listening_ww'
+
+[15:41:47][W][component:237]: Component gpio.binary_sensor took a long time for an operation (55 ms).
+[15:41:47][W][component:238]: Components should block for at most 30 ms.
+
+[15:41:47][D][micro_wake_word:107]: Starting Microphone
+
+[15:41:47][D][esp_adf_pipeline.microphone:025]: start request while ine state 0
+
+[15:41:47][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[15:41:47][D][micro_wake_word:195]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+
+[15:41:47][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+
+[15:41:47][D][adf_audio_element:108]: Preparing [i2s_in]...
+[15:41:47][D][adf_audio_element:108]: Preparing [resampler]...
+[15:41:47][D][adf_audio_element:108]: Preparing [pcm_reader]...
+
+[15:41:47][D][esp_audio_sinks:054]: Set bitdepth to 32
+[15:41:47][D][esp_audio_sinks:054]: Set bitdepth to 16
+
+[15:41:47][D][esp_audio_processors:124]: Current settings: SRC: rate: 48000, ch: 1 bits: 32, DST: rate: 16000, ch: 1, bits 16
+
+[15:41:47][D][esp_adf_pipeline:342]: wait for preparation, done
+[15:41:47][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[15:41:47][D][adf_audio_element:165]: Resuming [i2s_in]...
+[15:41:47][D][adf_audio_element:172]: [i2s_in] Sending resume command.
+
+[15:41:47][D][esp-idf:000][i2s_in]: I (408229) AUDIO_ELEMENT: [i2s_in] AEL_MSG_CMD_RESUME,state:1
+
+[15:41:47][D][adf_audio_element:165]: Resuming [pcm_reader]...
+
+[15:41:47][I][esp_adf_pipeline:132]: [ i2s_in ] status: 12
+
+[15:41:47][D][adf_audio_element:191]: [i2s_in] Checking State, got 78
+
+[15:41:47][I][esp_adf_pipeline:132]: [ resampler ] status: 12
+
+[15:41:47][D][adf_audio_element:191]: [resampler] Checking State, got 78
+[15:41:47][D][adf_audio_element:191]: [pcm_reader] Checking State, got 65
+
+[15:41:47][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[15:41:47][D][micro_wake_word:195]: State changed from STARTING_MICROPHONE to DETECTING_WAKE_WORD

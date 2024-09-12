@@ -1,0 +1,426 @@
+---
+- spec:
+    name: execute_services
+    description: Use this function to execute service of devices in Home Assistant.
+    parameters:
+      type: object
+      properties:
+        list:
+          type: array
+          items:
+            type: object
+            properties:
+              domain:
+                type: string
+                description: The domain of the service
+              service:
+                type: string
+                description: The service to be called
+              service_data:
+                type: object
+                description: The service data object to indicate what to control.
+                properties:
+                  entity_id:
+                    type: string
+                    description: The entity_id retrieved from available devices. It
+                      must start with domain, followed by dot character.
+                required:
+                - entity_id
+            required:
+            - domain
+            - service
+            - service_data
+  function:
+    type: native
+    name: execute_service
+
+- spec:
+    name: get_attributes
+    description: Get attributes of any home assistant entity
+    parameters:
+      type: object
+      properties:
+        entity_id:
+          type: string
+          description: entity_id
+      required:
+      - entity_id
+  function:
+    type: template
+    value_template: "{{states[entity_id]}}"
+
+- spec:
+    name: add_automation
+    description: Use this function to add an automation in Home Assistant.
+    parameters:
+      type: object
+      properties:
+        automation_config:
+          type: string
+          description: A configuration for automation in a valid yaml format. Next line character should be \n. Use devices from the list.
+      required:
+      - automation_config
+  function:
+    type: native
+    name: add_automation
+
+- spec:
+    name: get_weather
+    description: Get weatherforcast for a city specified by the user. If user didn't specified city, please use New Providence, NJ. Use "Ropes Crossing NSW" if no city is provided. Read back the data in an easy to understand format.
+    parameters:
+      type: object
+      properties:
+        city_id:
+          type: string
+          description: City of the weather forecast.
+      required:
+      - city_id
+  function:
+    type: rest
+    resource_template: "https://api.tomorrow.io/v4/weather/forecast?location={{city_id}}&timesteps=1d&apikey=AtvI5lTkFQFG9DvFDYMoVZuYspsgeXbY"
+    value_template: '{{value_json }}'
+
+- spec:
+    name: get_joke
+    description: Get weatherforcast for a city specified by the user. Use Read back the joke in an easy to understand format.
+    parameters:
+      type: object
+      properties:
+        city_id:
+          type: string
+          description: City of the weather forecast.
+      required:
+      - city_id
+  function:
+    type: rest
+    resource_template: "https://api.tomorrow.io/v4/weather/forecast?location={{city_id}}&timesteps=1d&apikey=AtvI5lTkFQFG9DvFDYMoVZuYspsgeXbY"
+    value_template: '{{value_json }}'
+
+- spec:
+    name: search_music
+    description: search for music, and just play it using music_assistant_play
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: search query
+        media_type:
+          type: array
+          optional: true
+          items: 
+            type: string
+            enum: ["artist", "album", "playlist", "track", "radio"]
+          description: Types of media to search
+        artist:
+          type: string
+          optional: true
+          description: Specify this when you search from a specific artist
+        album:
+          type: string
+          optional: true
+          description: Specify this when you search from a specific album
+      required:
+      - query
+  function:
+    type: script
+    sequence:
+    - service: mass.search
+      data: >
+        {
+          "name": "{{ query }}",
+          {% if media_type is defined and media_type %}
+          "media_type": {{ media_type | tojson }},
+          {% else %}
+          "media_type": ["artist", "album", "playlist", "track", "radio"],
+          {% endif %}
+          {% if artist is defined and artist %}
+          "artist": "{{ artist }}",
+          {% endif %}
+          {% if album is defined and album %}
+          "album": "{{ album }}",
+          {% endif %}
+          "limit": 1
+        }
+      response_variable: _function_result
+
+- spec:
+    name: music_assistant_play
+    description: >
+      Plays a spotify URI after searching for it using search_music
+    parameters:
+      type: object
+      properties:
+        media_player_id:
+          type: array
+          items:
+            type: string
+          description: List of media player Entity IDs to play. If not defined, then use media_player.ceiling_speakers
+        media_id:
+          type: string
+          description: Media identifier (URI)
+        enqueue:
+          type: string
+          enum: ["play", "replace", "next", "replace_next", "add"]
+          description: >
+            How to enqueue the media. 
+            If the user says to play a song next, then use next.
+            If the user says to play a song at the end of the playlist, then use add.
+            If the user says to start a new playlist, then use replace.
+            If you are unsure, just use play.
+      required:
+        - media_player_id
+        - media_id
+        - enqueue
+  function:
+    type: script
+    sequence:
+      - service: mass.play_media
+        target:
+          entity_id: "{{ media_player_id }}"
+        data:
+          media_id: "{{ media_id }}"
+          enqueue: "{{ enqueue }}"
+
+- spec:
+    name: get_history
+    description: Retrieve historical data of specified entities.
+    parameters:
+      type: object
+      properties:
+        entity_ids:
+          type: array
+          items:
+            type: string
+            description: The entity id to filter.
+        start_time:
+          type: string
+          description: Start of the history period in "%Y-%m-%dT%H:%M:%S%z".
+        end_time:
+          type: string
+          description: End of the history period in "%Y-%m-%dT%H:%M:%S%z".
+      required:
+        - entity_ids
+  function:
+    type: composite
+    sequence:
+      - type: native
+        name: get_history
+        response_variable: history_result
+      - type: template
+        value_template: >-
+          {% set ns = namespace(result = [], list = []) %}
+          {% for item_list in history_result %}
+              {% set ns.list = [] %}
+              {% for item in item_list %}
+                  {% set last_changed = item.last_changed | as_timestamp | timestamp_local if item.last_changed else None %}
+                  {% set new_item = dict(item, last_changed=last_changed) %}
+                  {% set ns.list = ns.list + [new_item] %}
+              {% endfor %}
+              {% set ns.result = ns.result + [ns.list] %}
+          {% endfor %}
+          {{ ns.result }}
+
+- spec:
+    name: chatgpt_memory
+    description: Add a note of important things you should remember
+    parameters:
+      type: object
+      properties:
+        item:
+          type: string
+          description: The note to be added to todo.chatgpt
+      required:
+      - item
+  function:
+    type: script
+    sequence:
+    - service: todo.add_item
+      data:
+        item: '{{item}}'
+      target:
+        entity_id: todo.chatgpt
+
+- spec:
+    name: openai_memory_read
+    description: Use this function to get the list of things you have to remember
+    parameters:
+      type: object
+      properties:
+        memory:
+          type: string
+          description: the entity id of the list to get the things to remember from
+          enum:
+            - todo.chatgpt
+      required:
+      - memory
+  function:
+    type: script
+    sequence:
+    - service: todo.get_items
+      target:
+        entity_id: '{{memory}}'
+      data:
+        status: needs_action
+      response_variable: _function_result
+
+- spec:
+    name: notify_smartphone
+    description: Send a notification to the smartphone
+    parameters:
+      type: object
+      properties:
+        service:
+          type: string
+          description: >
+            If the user asks to notify Alex the service is notify.telegram_alex
+            If the user asks to notify Tanya the service is notify.telegram_tanya
+        notification:
+          type: string
+          description: The notification to be sent and the service to be used
+      required:
+      - notification
+      - service
+  function:
+    type: script
+    sequence:
+    - service: '{{service}}'
+      data:
+        message: '{{notification}}'
+
+- spec:
+    name: describe_camera_feed
+    description: Get a description whats happening on security cameras around the house
+    parameters:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The prompt for the image analyzer
+        entity_ids:
+          type: array
+          description: List of camera entities
+          items:
+            type: string
+            description: Entity id of the camera
+      required:
+      - message
+      - entity_ids
+  function:
+    type: script
+    sequence:
+    - repeat:
+        sequence:
+          - service: camera.snapshot
+            metadata: {}
+            data:
+              filename: /config/www/tmp/{{repeat.item}}.jpg
+            target:
+              entity_id: "{{repeat.item}}"
+        for_each: "{{ entity_ids }}"
+    - service: gpt4vision.image_analyzer
+      metadata: {}
+      data:
+        provider: OpenAI
+        max_tokens: 600
+        target_width: 1000
+        temperature: 0.3
+        image_file: |-
+          {%for camera in entity_ids%}/config/www/tmp/{{camera}}.jpg
+          {%endfor%}
+        message: "{{message}}"
+      response_variable: _function_result
+
+# - spec:
+#     name: set_timer
+#     description: Set a timer
+#     parameters:
+#       type: object
+#       properties:
+#         time:
+#           type: string
+#           description: The time of the timer to be set
+#       required:
+#       - time
+#   function:
+#     type: script
+#     sequence:
+#     - service: timer.start
+#       target:
+#         entity_id:
+#           - timer.openai
+#       data:
+#         duration: "{{time}}"
+
+# - spec:
+#     name: get_items_from_list
+#     description: Use this function to get list of items in a ToDo list.
+#     parameters:
+#       type: object
+#       properties:
+#         list:
+#           type: string
+#           description: the entity id of the list to get the items from
+#           enum:
+#             - todo.shopping_list
+#             - todo.house_todo
+#       required:
+#       - list
+#   function:
+#     type: script
+#     sequence:
+#     - service: todo.get_items
+#       target:
+#         entity_id: '{{list}}'
+#       data:
+#         status: needs_action
+#       response_variable: _function_result
+
+
+## Use to set timer in HA using voice assistant
+## along with automation located in automations.yaml#L42-L85
+############################################################
+
+# - spec:
+#     name: set_timer_duration
+#     description: Use this function to set timer duration.
+#     parameters:
+#       type: object
+#       properties:
+#         timer_minutes:
+#           type: number
+#           description: The timer duration minutes in '%H:%M:%S' format
+#         timer_seconds:
+#           type: number
+#           description: The timer duration seconds in '%H:%M:%S' format
+#       required:
+#       - timer_minutes
+#       - timer_seconds
+#   function:
+#     type: script
+#     sequence:
+#     - service: input_number.set_value
+#       target:
+#         entity_id: input_number.timer_minutes
+#       data:
+#         value: "{{ timer_minutes }}"
+#     - service: input_number.set_value
+#       target:
+#         entity_id: input_number.timer_seconds
+#       data:
+#         value: "{{ timer_seconds }}"
+
+# An overview of the areas and the devices in this smart home, check in the whole Template Model if I explained you the correct entity to use:
+# {%- for area in areas() %}
+#   {%- set area_info = namespace(printed=false) %}
+#   {%- for device in area_devices(area) -%}
+#     {%- if not device_attr(device, "disabled_by") and not device_attr(device, "entry_type") and device_attr(device, "name") %}
+#       {%- if not area_info.printed %}
+
+# {{ area_name(area) }}:
+#         {%- set area_info.printed = true %}
+#       {%- endif %}
+# - {{ device_attr(device, "name") }}{% if device_attr(device, "model") and (device_attr(device, "model") | string) not in (device_attr(device, "name") | string) %} ({{ device_attr(device, "model") }}){% endif %}
+#     {%- endif %}
+#   {%- endfor %}
+# {%- endfor %}

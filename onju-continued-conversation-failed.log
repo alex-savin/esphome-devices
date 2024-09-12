@@ -1,0 +1,1192 @@
+
+[13:38:55][D][ring_buffer:024]: Created ring buffer with size 2048
+[13:38:55][D][micro_wake_word:399]: Resetting buffers and probabilities
+[13:38:55][D][micro_wake_word:195]: State changed from IDLE to START_MICROPHONE
+[13:38:55][W][component:237]: Component api took a long time for an operation (54 ms).
+[13:38:55][W][component:238]: Components should block for at most 30 ms.
+
+[13:38:55][D][micro_wake_word:107]: Starting Microphone
+[13:38:55][D][esp_adf_pipeline.microphone:025]: start request while ine state 0
+[13:38:55][D][esp_adf_pipeline:060]: Starting request, current state UNINITIALIZED
+[13:38:55][D][micro_wake_word:195]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[13:38:55][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from UNINITIALIZED to INITIALIZING. (REQ: 0)
+[13:38:55][D][i2s_audio:067]: Install driver requested by Reader
+[13:38:55][D][esp-idf:000]: I (8696) I2S: DMA Malloc info, datalen=blocksize=1024, dma_buf_count=4
+
+[13:38:55][D][esp-idf:000]: I (8698) I2S: DMA Malloc info, datalen=blocksize=1024, dma_buf_count=4
+
+[13:38:55][D][i2s_audio:073]: Installing driver : yes
+[13:38:55][D][esp_adf_pipeline:497]: pipeline tag 0, i2s_in
+[13:38:55][D][esp_adf_pipeline:497]: pipeline tag 1, pcm_reader
+
+[13:38:55][D][esp-idf:000]: I (8710) AUDIO_PIPELINE: link el->rb, el:0x3d811860, tag:i2s_in, rb:0x3d811b6c
+
+[13:38:55][D][esp_adf_pipeline:507]: Setting up event listener.
+[13:38:55][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from INITIALIZING to CREATED. (REQ: 0)
+[13:38:55][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from CREATED to PREPARING. (REQ: 0)
+
+[13:38:55][D][adf_audio_element:108]: Preparing [i2s_in]...
+[13:38:55][D][esp-idf:000]: I (8728) AUDIO_ELEMENT: [i2s_in-0x3d811860] Element task created
+
+[13:38:55][D][adf_audio_element:108]: Preparing [pcm_reader]...
+[13:38:55][D][esp-idf:000]: I (8734) AUDIO_ELEMENT: [pcm_reader-0x3d811a24] Element task created
+
+[13:38:55][D][esp_audio_sinks:054]: Set bitdepth to 32
+[13:38:55][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:38:55][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+[13:38:55][C][gpio.binary_sensor:015]: GPIO Binary Sensor 'Disable wake word'
+[13:38:55][C][gpio.binary_sensor:016]:   Pin: GPIO38
+[13:38:55][D][adf_audio_element:165]: Resuming [i2s_in]...
+[13:38:55][D][adf_audio_element:172]: [i2s_in] Sending resume command.
+[13:38:55][D][esp-idf:000][i2s_in]: I (8756) AUDIO_ELEMENT: [i2s_in] AEL_MSG_CMD_RESUME,state:1
+
+[13:38:55][D][adf_audio_element:191]: [pcm_reader] Checking State, got 64
+[13:38:55][I][esp_adf_pipeline:132]: [ i2s_in ] status: 12
+[13:38:55][D][adf_audio_element:191]: [i2s_in] Checking State, got 78
+[13:38:55][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:38:55][C][light:103]: Light 'leds'
+[13:38:55][C][light:105]:   Default Transition Length: 0.0s
+[13:38:55][C][light:106]:   Gamma Correct: 2.80
+
+[13:38:55][D][micro_wake_word:195]: State changed from STARTING_MICROPHONE to DETECTING_WAKE_WORD
+
+[13:38:55][C][light:103]: Light 'left_led'
+[13:38:55][C][light:105]:   Default Transition Length: 0.1s
+[13:38:55][C][light:106]:   Gamma Correct: 2.80
+[13:38:55][C][light:103]: Light 'top_led'
+[13:38:55][C][light:105]:   Default Transition Length: 0.1s
+[13:38:55][C][light:106]:   Gamma Correct: 2.80
+[13:38:55][C][light:103]: Light 'right_led'
+[13:38:55][C][light:105]:   Default Transition Length: 0.1s
+[13:38:55][C][light:106]:   Gamma Correct: 2.80
+
+[13:38:56][C][template.switch:068]: Template Switch 'Use Wake Word'
+[13:38:56][C][template.switch:091]:   Restore Mode: restore defaults to ON
+[13:38:56][C][template.switch:057]:   Optimistic: YES
+[13:38:56][C][template.switch:068]: Template Switch 'Continued Conversation'
+[13:38:56][C][template.switch:091]:   Restore Mode: restore defaults to OFF
+[13:38:56][C][template.switch:057]:   Optimistic: YES
+[13:38:56][C][template.switch:068]: Template Switch 'Wake Word Listening Light'
+[13:38:56][C][template.switch:091]:   Restore Mode: restore defaults to ON
+[13:38:56][C][template.switch:057]:   Optimistic: YES
+[13:38:56][C][psram:020]: PSRAM:
+[13:38:56][C][psram:021]:   Available: YES
+[13:38:56][C][psram:024]:   Size: 8191 KB
+
+[13:38:56][C][i2s_audio:028]: I2SController:
+[13:38:56][C][i2s_audio:029]:   AccessMode: duplex
+[13:38:56][C][i2s_audio:030]:   Port: 0
+[13:38:56][C][i2s_audio:032]:   Reader registered.
+[13:38:56][C][i2s_audio:035]:   Writer registered.
+[13:38:56][C][i2s_audio:139]: I2S-Writer (Fixed-CFG):
+[13:38:56][C][i2s_audio:141]:   sample-rate: 16000 bits_per_sample: 32
+[13:38:56][C][i2s_audio:142]:   channel_fmt: 4 channels: 1
+[13:38:56][C][i2s_audio:143]:   use_apll: no, use_pdm: no
+[13:38:56][C][i2s_audio:136]: I2S-Reader (Fixed-CFG):
+[13:38:56][C][i2s_audio:141]:   sample-rate: 16000 bits_per_sample: 32
+[13:38:56][C][i2s_audio:142]:   channel_fmt: 4 channels: 1
+[13:38:56][C][i2s_audio:143]:   use_apll: no, use_pdm: no
+
+[13:38:56][C][esp32_touch:073]: Config for ESP32 Touch Hub:
+[13:38:56][C][esp32_touch:074]:   Meas cycle: 0.80ms
+[13:38:56][C][esp32_touch:075]:   Sleep cycle: 2.00ms
+[13:38:56][C][esp32_touch:095]:   Low Voltage Reference: 0.8V
+[13:38:56][C][esp32_touch:115]:   High Voltage Reference: 2.4V
+[13:38:56][C][esp32_touch:135]:   Voltage Attenuation: 0V
+[13:38:56][C][esp32_touch:169]:   Filter mode: IIR_16
+[13:38:56][C][esp32_touch:170]:   Debounce count: 2
+[13:38:56][C][esp32_touch:171]:   Noise threshold coefficient: 0
+[13:38:56][C][esp32_touch:172]:   Jitter filter step size: 0
+[13:38:56][C][esp32_touch:191]:   Smooth level: IIR_2
+[13:38:56][C][esp32_touch:213]:   Denoise grade: BIT8
+[13:38:56][C][esp32_touch:245]:   Denoise capacitance level: L0
+[13:38:56][C][esp32_touch:260]:   Touch Pad 'volume_down'
+[13:38:56][C][esp32_touch:261]:     Pad: T4
+[13:38:56][C][esp32_touch:262]:     Threshold: 631862
+[13:38:56][C][esp32_touch:260]:   Touch Pad 'volume_up'
+[13:38:56][C][esp32_touch:261]:     Pad: T2
+[13:38:56][C][esp32_touch:262]:     Threshold: 684259
+[13:38:56][C][esp32_touch:260]:   Touch Pad 'action'
+[13:38:56][C][esp32_touch:261]:     Pad: T3
+[13:38:56][C][esp32_touch:262]:     Threshold: 875790
+
+[13:38:56][C][captive_portal:088]: Captive Portal:
+[13:38:56][C][mdns:116]: mDNS:
+[13:38:56][C][mdns:117]:   Hostname: onju-voice-02
+
+[13:38:56][C][esphome.ota:073]: Over-The-Air updates:
+[13:38:56][C][esphome.ota:074]:   Address: onju-voice-02.local:3232
+[13:38:56][C][esphome.ota:075]:   Version: 2
+[13:38:56][C][esphome.ota:078]:   Password configured
+
+[13:38:56][C][safe_mode:018]: Safe Mode:
+[13:38:56][C][safe_mode:020]:   Boot considered successful after 60 seconds
+[13:38:56][C][safe_mode:021]:   Invoke after 10 boot attempts
+[13:38:56][C][safe_mode:023]:   Remain in safe mode for 300 seconds
+
+[13:38:56][C][api:139]: API Server:
+[13:38:56][C][api:140]:   Address: onju-voice-02.local:6053
+[13:38:56][C][api:142]:   Using noise encryption: YES
+
+[13:38:56][C][micro_wake_word:051]: microWakeWord:
+[13:38:56][C][micro_wake_word:052]:   models:
+[13:38:56][C][micro_wake_word:015]:     - Wake Word: okay nabu
+[13:38:56][C][micro_wake_word:016]:       Probability cutoff: 0.970
+[13:38:56][C][micro_wake_word:017]:       Sliding window size: 5
+[13:38:56][C][micro_wake_word:015]:     - Wake Word: alexa
+[13:38:56][C][micro_wake_word:016]:       Probability cutoff: 0.900
+[13:38:56][C][micro_wake_word:017]:       Sliding window size: 5
+[13:38:56][C][micro_wake_word:021]:     - VAD Model
+[13:38:56][C][micro_wake_word:022]:       Probability cutoff: 0.500
+[13:38:56][C][micro_wake_word:023]:       Sliding window size: 5
+
+[13:38:56][C][esp_adf_pipeline.microphone:020]: ADF-Microphone
+
+[13:38:56][D][light:036]: 'top_led' Setting:
+[13:38:56][D][light:051]:   Brightness: 60%
+[13:38:56][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[13:38:56][D][light:109]:   Effect: 'listening_ww'
+
+[13:38:56][C][adf_media_player:016]: ESP-ADF-MediaPlayer:
+[13:38:56][C][adf_media_player:018]:   MP_ANNOUNCE enabled
+[13:38:56][C][adf_media_player:024]:   Number of ADFComponents: 3
+
+[13:39:48][I][safe_mode:041]: Boot seems successful; resetting boot loop counter
+
+[13:39:48][D][esp32.preferences:114]: Saving 1 preferences to flash...
+[13:39:48][D][esp32.preferences:143]: Saving 1 preferences to flash: 0 cached, 1 written, 0 failed
+
+[13:44:25][D][micro_wake_word:162]: The 'alexa' model sliding average probability is 0.981 and most recent probability is 0.976
+[13:44:25][D][micro_wake_word:123]: Wake Word 'alexa' Detected
+[13:44:25][D][micro_wake_word:195]: State changed from DETECTING_WAKE_WORD to STOP_MICROPHONE
+[13:44:25][D][micro_wake_word:129]: Stopping Microphone
+
+[13:44:25][D][esp_adf_pipeline:070]: Called 'stop' while in RUNNING state.
+
+[13:44:25][D][micro_wake_word:195]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+
+[13:44:25][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from RUNNING to ABORTING. (REQ: 1)
+
+[13:44:25][D][adf_audio_element:324]: [i2s_in] Checking State for stopping, got 3
+
+[13:44:25][D][esp-idf:000][i2s_in]: W (338575) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:25][D][esp-idf:000][i2s_in]: W (338577) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:25][D][esp-idf:000][i2s_in]: W (338580) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:25][D][esp-idf:000][i2s_in]: W (338583) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:25][D][esp-idf:000][i2s_in]: W (338585) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+
+[13:44:25][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from ABORTING to STOPPED. (REQ: 1)
+
+[13:44:25][D][micro_wake_word:195]: State changed from STOPPING_MICROPHONE to IDLE
+
+[13:44:25][D][media_player:061]: 'Onju Voice #02' - Setting
+[13:44:25][D][media_player:068]:   Media URL: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:44:25][D][esp_audio_sources:098]: Set new uri: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:44:25][D][adf_media_player:057]: Got control call in state IDLE
+[13:44:25][D][adf_media_player:058]: req_track stream uri: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:44:25][D][esp_adf_pipeline:060]: Starting request, current state UNINITIALIZED
+
+[13:44:25][D][voice_assistant:504]: State changed from IDLE to START_MICROPHONE
+[13:44:25][D][voice_assistant:510]: Desired state set to START_PIPELINE
+[13:44:25][D][voice_assistant:221]: Starting Microphone
+
+[13:44:25][D][ring_buffer:024]: Created ring buffer with size 16384
+
+[13:44:25][D][esp_adf_pipeline.microphone:025]: start request while ine state 0
+[13:44:25][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:44:25][D][voice_assistant:504]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[13:44:25][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+[13:44:25][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from UNINITIALIZED to INITIALIZING. (REQ: 0)
+
+[13:44:25][I][adf_media_player:192]: got new pipeline state: 1, while in MP state IDLE
+
+[13:44:25][D][adf_audio_element:108]: Preparing [i2s_in]...
+
+[13:44:25][D][esp-idf:000]: I (338654) MP3_DECODER: MP3 init
+
+[13:44:25][D][i2s_audio:067]: Install driver requested by Writer
+
+[13:44:25][D][esp_adf_pipeline:497]: pipeline tag 0, http
+[13:44:25][D][esp_adf_pipeline:497]: pipeline tag 1, decoder
+[13:44:25][D][esp_adf_pipeline:497]: pipeline tag 2, resampler
+[13:44:25][D][esp_adf_pipeline:497]: pipeline tag 3, i2s_out
+
+[13:44:25][D][esp-idf:000]: I (338670) AUDIO_PIPELINE: link el->rb, el:0x3d8054f0, tag:http, rb:0x3d805b40
+[13:44:25][D][esp-idf:000]: I (338673) AUDIO_PIPELINE: link el->rb, el:0x3d8056a0, tag:decoder, rb:0x3d806b80
+[13:44:25][D][esp-idf:000]: I (338676) AUDIO_PIPELINE: link el->rb, el:0x3d80583c, tag:resampler, rb:0x3d807bc0
+
+[13:44:25][D][esp_adf_pipeline:507]: Setting up event listener.
+[13:44:25][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from INITIALIZING to CREATED. (REQ: 0)
+
+[13:44:25][I][adf_media_player:192]: got new pipeline state: 2, while in MP state IDLE
+[13:44:25][I][adf_media_player:256]: current mp state: IDLE
+[13:44:25][I][adf_media_player:257]: anouncement: false
+[13:44:25][I][adf_media_player:258]: play_intent: false
+[13:44:25][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:25][D][adf_audio_element:108]: Preparing [pcm_reader]...
+
+[13:44:25][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from CREATED to PREPARING. (REQ: 0)
+
+[13:44:25][I][adf_media_player:192]: got new pipeline state: 3, while in MP state IDLE
+
+[13:44:25][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:44:25][D][esp_audio_processors:124]: Current settings: SRC: rate: 16000, ch: 2 bits: 16, DST: rate: 16000, ch: 2, bits 16
+[13:44:25][I][adf_media_player:256]: current mp state: PLAYING
+[13:44:25][I][adf_media_player:257]: anouncement: false
+[13:44:25][I][adf_media_player:258]: play_intent: false
+[13:44:25][I][adf_media_player:259]: current_uri_: yes
+[13:44:25][D][esp_audio_sources:103]: Prepare elements called (initial_call)!
+[13:44:25][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:44:25][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+[13:44:25][D][adf_audio_element:108]: Preparing [resampler]...
+[13:44:25][D][esp-idf:000]: I (338741) AUDIO_THREAD: The resampler task allocate stack on external memory
+
+[13:44:25][D][esp-idf:000]: I (338744) AUDIO_ELEMENT: [resampler-0x3d80583c] Element task created
+
+[13:44:25][D][adf_audio_element:165]: Resuming [i2s_in]...
+[13:44:25][D][adf_audio_element:172]: [i2s_in] Sending resume command.
+[13:44:25][D][esp-idf:000][i2s_in]: I (338752) AUDIO_ELEMENT: [i2s_in] AEL_MSG_CMD_RESUME,state:1
+
+[13:44:25][D][adf_audio_element:165]: Resuming [pcm_reader]...
+
+[13:44:25][I][esp_adf_pipeline:132]: [ i2s_in ] status: 12
+
+[13:44:25][D][adf_audio_element:191]: [i2s_in] Checking State, got 78
+[13:44:25][D][adf_audio_element:191]: [pcm_reader] Checking State, got 65
+
+[13:44:25][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:44:25][D][voice_assistant:504]: State changed from STARTING_MICROPHONE to START_PIPELINE
+
+[13:44:25][D][adf_audio_element:165]: Resuming [http]...
+[13:44:25][D][adf_audio_element:172]: [http] Sending resume command.
+[13:44:25][D][adf_audio_element:165]: Resuming [decoder]...
+[13:44:25][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:44:25][D][esp-idf:000][decoder]: I (338785) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:44:25][D][esp-idf:000][decoder]: I (338789) MP3_DECODER: MP3 opened
+
+[13:44:25][D][adf_audio_element:191]: [http] Checking State, got 72
+[13:44:25][D][adf_audio_element:191]: [decoder] Checking State, got 72
+
+[13:44:25][D][voice_assistant:525]: Client started, streaming microphone
+[13:44:25][D][voice_assistant:504]: State changed from STARTING_PIPELINE to STREAMING_MICROPHONE
+[13:44:26][D][voice_assistant:510]: Desired state set to STREAMING_MICROPHONE
+[13:44:26][D][voice_assistant:627]: Event Type: 1
+[13:44:26][D][voice_assistant:630]: Assist Pipeline running
+[13:44:26][D][voice_assistant:627]: Event Type: 3
+[13:44:26][D][voice_assistant:641]: STT started
+
+[13:44:26][D][light:036]: 'top_led' Setting:
+[13:44:26][D][light:051]:   Brightness: 100%
+[13:44:26][D][light:059]:   Red: 100%, Green: 100%, Blue: 100%
+[13:44:26][D][light:109]:   Effect: 'listening'
+
+[13:44:26][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:44:26][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:44:27][D][esp-idf:000][http]: I (339831) HTTP_STREAM: total_bytes=19527
+
+[13:44:27][I][HTTPStreamReader:230]: Codec Format reported: 3.
+[13:44:27][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=44100, bits=16, ch=2
+[13:44:27][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=192000, duration=0, bytes=-93
+
+[13:44:27][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:44:27][D][esp_audio_processors:108]: Received request from: HTTPStreamReader
+[13:44:27][D][esp_audio_processors:113]: New settings: SRC: rate: 44100, ch: 2 bits: 16, DST: rate: 16000, ch: 1, bits 16
+[13:44:27][D][esp_audio_processors:124]: Current settings: SRC: rate: 44100, ch: 2 bits: 16, DST: rate: 16000, ch: 1, bits 16
+
+[13:44:27][D][adf_audio_element:108]: Preparing [http]...
+[13:44:27][D][adf_audio_element:108]: Preparing [decoder]...
+
+[13:44:27][D][esp-idf:000][decoder]: W (339907) AUDIO_ELEMENT: OUT-[decoder] AEL_IO_ABORT
+[13:44:27][D][esp-idf:000][decoder]: W (339910) MP3_DECODER: output aborted -3
+[13:44:27][D][esp-idf:000][decoder]: I (339914) MP3_DECODER: Closed
+
+[13:44:27][D][esp_audio_sources:193]: Preparation done!
+
+[13:44:27][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:44:27][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:44:27][I][adf_media_player:192]: got new pipeline state: 5, while in MP state PLAYING
+[13:44:27][I][adf_media_player:256]: current mp state: PLAYING
+[13:44:27][I][adf_media_player:257]: anouncement: false
+[13:44:27][I][adf_media_player:258]: play_intent: false
+[13:44:27][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:27][D][adf_audio_element:165]: Resuming [http]...
+[13:44:27][D][adf_audio_element:172]: [http] Sending resume command.
+[13:44:27][D][adf_audio_element:165]: Resuming [decoder]...
+[13:44:27][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:44:27][D][esp-idf:000][decoder]: I (339968) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:44:27][D][esp-idf:000][decoder]: I (340211) MP3_DECODER: MP3 opened
+
+[13:44:27][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:44:27][I][adf_media_player:192]: got new pipeline state: 6, while in MP state PLAYING
+[13:44:27][I][adf_media_player:256]: current mp state: PLAYING
+[13:44:27][I][adf_media_player:257]: anouncement: false
+[13:44:27][I][adf_media_player:258]: play_intent: false
+[13:44:27][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:28][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:44:28][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:44:28][D][esp-idf:000][http]: I (341128) HTTP_STREAM: total_bytes=19527
+
+[13:44:28][I][HTTPStreamReader:230]: Codec Format reported: 3.
+
+[13:44:28][I][esp_adf_pipeline:132]: [ http ] status: 12
+[13:44:28][I][esp_adf_pipeline:132]: [ decoder ] status: 12
+
+[13:44:28][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=44100, bits=16, ch=2
+[13:44:28][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=192000, duration=0, bytes=-93
+
+[13:44:28][D][voice_assistant:627]: Event Type: 12
+[13:44:28][D][voice_assistant:787]: STT by VAD end
+[13:44:28][D][voice_assistant:504]: State changed from STREAMING_MICROPHONE to STOP_MICROPHONE
+[13:44:28][D][voice_assistant:510]: Desired state set to AWAITING_RESPONSE
+
+[13:44:28][D][esp_adf_pipeline:070]: Called 'stop' while in RUNNING state.
+
+[13:44:28][D][voice_assistant:504]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+
+[13:44:28][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from RUNNING to ABORTING. (REQ: 1)
+
+[13:44:28][D][light:036]: 'top_led' Setting:
+[13:44:28][D][light:051]:   Brightness: 70%
+[13:44:28][D][light:059]:   Red: 0%, Green: 20%, Blue: 100%
+[13:44:28][D][light:109]:   Effect: 'processing'
+
+[13:44:28][D][vad:422]: VAD finished
+
+[13:44:28][D][adf_audio_element:324]: [i2s_in] Checking State for stopping, got 3
+
+[13:44:28][D][esp-idf:000][i2s_in]: W (341377) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:28][D][esp-idf:000][i2s_in]: W (341382) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:28][D][esp-idf:000][i2s_in]: W (341386) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:28][D][esp-idf:000][i2s_in]: W (341389) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:44:28][D][esp-idf:000][i2s_in]: W (341394) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+
+[13:44:28][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from ABORTING to STOPPED. (REQ: 1)
+
+[13:44:28][D][voice_assistant:504]: State changed from STOPPING_MICROPHONE to AWAITING_RESPONSE
+[13:44:28][D][voice_assistant:627]: Event Type: 4
+[13:44:28][D][voice_assistant:655]: Speech recognised as: "What time is it now?"
+[13:44:28][D][voice_assistant:627]: Event Type: 5
+[13:44:28][D][voice_assistant:660]: Intent started
+
+[13:44:28][D][va-intent:400]: VA Intent started
+
+[13:44:28][D][esp-idf:000][http]: W (341560) HTTP_STREAM: No more data,errno:0, total_bytes:19527, rlen = 0
+
+[13:44:28][I][esp_audio_sources:033][http]: Receive http event: 7
+
+[13:44:28][D][esp-idf:000][http]: I (341568) AUDIO_ELEMENT: IN-[http] AEL_IO_DONE,0
+
+[13:44:28][I][esp_adf_pipeline:123]: [ http ] byte_pos: 0, total: 19527
+[13:44:28][I][esp_adf_pipeline:132]: [ http ] status: 15
+[13:44:28][I][esp_adf_pipeline:135]: current state: RUNNING
+[13:44:28][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from RUNNING to FINISHING. (REQ: 0)
+
+[13:44:28][I][adf_media_player:192]: got new pipeline state: 7, while in MP state PLAYING
+[13:44:28][I][adf_media_player:256]: current mp state: PLAYING
+[13:44:28][I][adf_media_player:257]: anouncement: false
+[13:44:28][I][adf_media_player:258]: play_intent: false
+[13:44:28][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:28][D][esp-idf:000][decoder]: I (341720) AUDIO_ELEMENT: IN-[decoder] AEL_IO_DONE,-2
+[13:44:28][D][esp-idf:000][decoder]: I (341808) MP3_DECODER: Closed
+
+[13:44:28][I][esp_adf_pipeline:123]: [ decoder ] byte_pos: 0, total: -93
+[13:44:28][I][esp_adf_pipeline:132]: [ decoder ] status: 15
+[13:44:28][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:44:29][D][esp-idf:000][resampler]: I (341839) AUDIO_ELEMENT: IN-[resampler] AEL_IO_DONE,-2
+
+[13:44:29][I][esp_adf_pipeline:132]: [ resampler ] status: 15
+[13:44:29][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:44:29][D][esp-idf:000][i2s_out]: I (341918) AUDIO_ELEMENT: IN-[i2s_out] AEL_IO_DONE,-2
+
+[13:44:29][I][esp_adf_pipeline:123]: [ i2s_out ] byte_pos: 0, total: 0
+[13:44:29][I][esp_adf_pipeline:132]: [ i2s_out ] status: 15
+[13:44:29][I][esp_adf_pipeline:135]: current state: FINISHING
+[13:44:29][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from FINISHING to STOPPED. (REQ: 1)
+
+[13:44:29][I][adf_media_player:192]: got new pipeline state: 4, while in MP state PLAYING
+[13:44:29][I][adf_media_player:256]: current mp state: IDLE
+[13:44:29][I][adf_media_player:257]: anouncement: false
+[13:44:29][I][adf_media_player:258]: play_intent: false
+[13:44:29][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:30][D][voice_assistant:627]: Event Type: 6
+
+[13:44:30][D][va-intent:405]: VA Intent finished
+
+[13:44:30][D][voice_assistant:627]: Event Type: 7
+[13:44:30][D][voice_assistant:683]: Response: "It's currently 1:44 PM."
+[13:44:30][D][voice_assistant:627]: Event Type: 8
+[13:44:30][D][voice_assistant:705]: Response URL: "https://house.savin.nyc/api/tts_proxy/e7a17f709133bc2e16d04faa7bb3ab2839e86170_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3"
+[13:44:30][D][voice_assistant:504]: State changed from AWAITING_RESPONSE to STREAMING_RESPONSE
+[13:44:30][D][voice_assistant:510]: Desired state set to STREAMING_RESPONSE
+
+[13:44:30][D][media_player:061]: 'Onju Voice #02' - Setting
+[13:44:30][D][media_player:068]:   Media URL: https://house.savin.nyc/api/tts_proxy/e7a17f709133bc2e16d04faa7bb3ab2839e86170_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3
+[13:44:30][D][media_player:074]:  Announcement: yes
+
+[13:44:30][D][adf_media_player:057]: Got control call in state IDLE
+[13:44:30][D][adf_media_player:058]: req_track stream uri: https://house.savin.nyc/api/tts_proxy/e7a17f709133bc2e16d04faa7bb3ab2839e86170_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3
+[13:44:30][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:44:30][D][light:036]: 'top_led' Setting:
+[13:44:30][D][light:059]:   Red: 20%, Green: 100%, Blue: 0%
+[13:44:30][D][light:109]:   Effect: 'speaking'
+
+[13:44:30][D][voice_assistant:627]: Event Type: 2
+[13:44:30][D][voice_assistant:719]: Assist Pipeline ended
+
+[13:44:30][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+
+[13:44:30][I][adf_media_player:192]: got new pipeline state: 3, while in MP state IDLE
+
+[13:44:30][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:44:30][D][esp_audio_processors:124]: Current settings: SRC: rate: 44100, ch: 2 bits: 16, DST: rate: 16000, ch: 1, bits 16
+[13:44:30][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:44:30][I][adf_media_player:257]: anouncement: yes
+[13:44:30][I][adf_media_player:258]: play_intent: false
+[13:44:30][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:30][D][esp_audio_sources:103]: Prepare elements called (initial_call)!
+[13:44:30][D][esp_audio_sources:137]: Use fixed settings: no
+[13:44:30][D][esp_audio_sources:138]: Streamer status: 6
+[13:44:30][D][esp_audio_sources:139]: decoder status: 6
+[13:44:30][D][esp_audio_sources:140]: stream uri: https://house.savin.nyc/api/tts_proxy/e7a17f709133bc2e16d04faa7bb3ab2839e86170_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3
+
+[13:44:30][D][adf_audio_element:108]: Preparing [http]...
+[13:44:30][D][adf_audio_element:108]: Preparing [decoder]...
+[13:44:31][D][adf_audio_element:108]: Preparing [resampler]...
+[13:44:31][D][adf_audio_element:108]: Preparing [i2s_out]...
+[13:44:31][D][adf_audio_element:165]: Resuming [http]...
+[13:44:31][D][adf_audio_element:172]: [http] Sending resume command.
+[13:44:31][D][adf_audio_element:165]: Resuming [decoder]...
+[13:44:31][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:44:31][D][esp-idf:000][decoder]: I (343847) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:44:31][D][esp-idf:000][decoder]: I (343864) MP3_DECODER: MP3 opened
+
+[13:44:31][D][light:036]: 'top_led' Setting:
+[13:44:31][D][light:051]:   Brightness: 60%
+[13:44:31][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[13:44:31][D][light:109]:   Effect: 'listening_ww'
+
+[13:44:31][D][micro_wake_word:399]: Resetting buffers and probabilities
+[13:44:31][D][micro_wake_word:195]: State changed from IDLE to START_MICROPHONE
+
+[13:44:31][W][component:237]: Component voice_assistant took a long time for an operation (57 ms).
+[13:44:31][W][component:238]: Components should block for at most 30 ms.
+
+[13:44:31][D][micro_wake_word:107]: Starting Microphone
+
+[13:44:31][D][esp_adf_pipeline.microphone:025]: start request while ine state 0
+
+[13:44:31][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:44:31][D][micro_wake_word:195]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+
+[13:44:31][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+
+[13:44:31][D][adf_audio_element:108]: Preparing [i2s_in]...
+[13:44:31][D][adf_audio_element:108]: Preparing [pcm_reader]...
+
+[13:44:31][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:44:31][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:44:31][D][adf_audio_element:165]: Resuming [i2s_in]...
+[13:44:31][D][adf_audio_element:172]: [i2s_in] Sending resume command.
+
+[13:44:31][D][esp-idf:000][i2s_in]: I (344327) AUDIO_ELEMENT: [i2s_in] AEL_MSG_CMD_RESUME,state:1
+
+[13:44:31][D][adf_audio_element:165]: Resuming [pcm_reader]...
+
+[13:44:31][I][esp_adf_pipeline:132]: [ i2s_in ] status: 12
+
+[13:44:31][D][adf_audio_element:191]: [i2s_in] Checking State, got 78
+[13:44:31][D][adf_audio_element:191]: [pcm_reader] Checking State, got 65
+
+[13:44:31][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+
+[13:44:31][D][micro_wake_word:195]: State changed from STARTING_MICROPHONE to DETECTING_WAKE_WORD
+
+[13:44:31][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:44:31][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:44:31][D][esp-idf:000][http]: I (344709) HTTP_STREAM: total_bytes=19862
+
+[13:44:31][I][HTTPStreamReader:230]: Codec Format reported: 3.
+[13:44:31][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=24000, bits=16, ch=1
+[13:44:31][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=48000, duration=0, bytes=-1142
+
+[13:44:31][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:44:31][D][esp_audio_processors:108]: Received request from: HTTPStreamReader
+[13:44:31][D][esp_audio_processors:113]: New settings: SRC: rate: 24000, ch: 1 bits: 16, DST: rate: 16000, ch: 1, bits 16
+[13:44:31][D][esp_audio_processors:124]: Current settings: SRC: rate: 24000, ch: 1 bits: 16, DST: rate: 16000, ch: 1, bits 16
+
+[13:44:31][D][adf_audio_element:108]: Preparing [http]...
+[13:44:31][D][adf_audio_element:108]: Preparing [decoder]...
+
+[13:44:31][D][esp-idf:000][decoder]: W (344787) AUDIO_ELEMENT: OUT-[decoder] AEL_IO_ABORT
+[13:44:31][D][esp-idf:000][decoder]: W (344791) MP3_DECODER: output aborted -3
+[13:44:31][D][esp-idf:000][decoder]: I (344796) MP3_DECODER: Closed
+
+[13:44:32][D][esp_audio_sources:193]: Preparation done!
+
+[13:44:32][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:44:32][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:44:32][I][adf_media_player:192]: got new pipeline state: 5, while in MP state ANNOUNCING
+[13:44:32][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:44:32][I][adf_media_player:257]: anouncement: yes
+[13:44:32][I][adf_media_player:258]: play_intent: false
+[13:44:32][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:32][D][adf_audio_element:165]: Resuming [http]...
+[13:44:32][D][adf_audio_element:172]: [http] Sending resume command.
+[13:44:32][D][adf_audio_element:165]: Resuming [decoder]...
+[13:44:32][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:44:32][D][esp-idf:000][decoder]: I (344931) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:44:32][D][esp-idf:000][decoder]: I (344935) MP3_DECODER: MP3 opened
+
+[13:44:32][D][adf_audio_element:165]: Resuming [resampler]...
+[13:44:32][D][adf_audio_element:172]: [resampler] Sending resume command.
+
+[13:44:32][D][esp-idf:000][resampler]: I (344956) AUDIO_ELEMENT: [resampler] AEL_MSG_CMD_RESUME,state:1
+[13:44:32][D][esp-idf:000][resampler]: I (345001) RSP_FILTER: sample rate of source data : 24000, channel of source data : 1, sample rate of destination data : 16000, channel of destination data : 1
+
+[13:44:32][D][adf_audio_element:191]: [resampler] Checking State, got 78
+
+[13:44:32][I][esp_adf_pipeline:132]: [ i2s_out ] status: 12
+[13:44:32][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:44:32][I][adf_media_player:192]: got new pipeline state: 6, while in MP state ANNOUNCING
+[13:44:32][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:44:32][I][adf_media_player:257]: anouncement: yes
+[13:44:32][I][adf_media_player:258]: play_intent: false
+[13:44:32][I][adf_media_player:259]: current_uri_: yes
+[13:44:32][I][esp_adf_pipeline:132]: [ resampler ] status: 12
+[13:44:32][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:44:32][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:44:32][D][esp-idf:000][http]: I (345805) HTTP_STREAM: total_bytes=19862
+
+[13:44:32][I][HTTPStreamReader:230]: Codec Format reported: 3.
+
+[13:44:32][I][esp_adf_pipeline:132]: [ http ] status: 12
+[13:44:33][I][esp_adf_pipeline:132]: [ decoder ] status: 12
+
+[13:44:33][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=24000, bits=16, ch=1
+[13:44:33][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=48000, duration=0, bytes=-1142
+
+[13:44:34][D][esp-idf:000][http]: W (347682) HTTP_STREAM: No more data,errno:0, total_bytes:19862, rlen = 0
+
+[13:44:34][I][esp_audio_sources:033][http]: Receive http event: 7
+
+[13:44:34][D][esp-idf:000][http]: I (347689) AUDIO_ELEMENT: IN-[http] AEL_IO_DONE,0
+
+[13:44:34][I][esp_adf_pipeline:123]: [ http ] byte_pos: 0, total: 19862
+[13:44:34][I][esp_adf_pipeline:132]: [ http ] status: 15
+[13:44:34][I][esp_adf_pipeline:135]: current state: RUNNING
+[13:44:34][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from RUNNING to FINISHING. (REQ: 0)
+
+[13:44:34][I][adf_media_player:192]: got new pipeline state: 7, while in MP state ANNOUNCING
+[13:44:34][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:44:34][I][adf_media_player:257]: anouncement: yes
+[13:44:34][I][adf_media_player:258]: play_intent: false
+[13:44:34][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:35][D][esp-idf:000][decoder]: I (348386) AUDIO_ELEMENT: IN-[decoder] AEL_IO_DONE,-2
+[13:44:35][D][esp-idf:000][decoder]: I (348735) MP3_DECODER: Closed
+
+[13:44:35][I][esp_adf_pipeline:123]: [ decoder ] byte_pos: 0, total: -1142
+[13:44:35][I][esp_adf_pipeline:132]: [ decoder ] status: 15
+[13:44:35][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:44:36][D][esp-idf:000][resampler]: I (348831) AUDIO_ELEMENT: IN-[resampler] AEL_IO_DONE,-2
+
+[13:44:36][I][esp_adf_pipeline:132]: [ resampler ] status: 15
+[13:44:36][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:44:36][D][esp-idf:000][i2s_out]: I (348926) AUDIO_ELEMENT: IN-[i2s_out] AEL_IO_DONE,-2
+
+[13:44:36][I][esp_adf_pipeline:123]: [ i2s_out ] byte_pos: 0, total: 0
+[13:44:36][I][esp_adf_pipeline:132]: [ i2s_out ] status: 15
+[13:44:36][I][esp_adf_pipeline:135]: current state: FINISHING
+[13:44:36][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from FINISHING to STOPPED. (REQ: 1)
+
+[13:44:36][I][adf_media_player:192]: got new pipeline state: 4, while in MP state ANNOUNCING
+[13:44:36][I][adf_media_player:256]: current mp state: IDLE
+[13:44:36][I][adf_media_player:257]: anouncement: false
+[13:44:36][I][adf_media_player:258]: play_intent: false
+[13:44:36][I][adf_media_player:259]: current_uri_: yes
+
+[13:44:38][D][voice_assistant:504]: State changed from STREAMING_RESPONSE to IDLE
+[13:44:38][D][voice_assistant:510]: Desired state set to IDLE
+
+[13:56:40][D][switch:012]: 'Continued Conversation' Turning ON.
+[13:56:40][D][switch:055]: 'Continued Conversation': Sending state ON
+
+[13:56:46][D][micro_wake_word:162]: The 'alexa' model sliding average probability is 0.953 and most recent probability is 0.980
+[13:56:46][D][micro_wake_word:123]: Wake Word 'alexa' Detected
+[13:56:46][D][micro_wake_word:195]: State changed from DETECTING_WAKE_WORD to STOP_MICROPHONE
+[13:56:46][D][micro_wake_word:129]: Stopping Microphone
+
+[13:56:46][D][esp_adf_pipeline:070]: Called 'stop' while in RUNNING state.
+
+[13:56:46][D][micro_wake_word:195]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+
+[13:56:46][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from RUNNING to ABORTING. (REQ: 1)
+
+[13:56:46][D][adf_audio_element:324]: [i2s_in] Checking State for stopping, got 3
+
+[13:56:46][D][esp-idf:000][i2s_in]: W (1078946) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:46][D][esp-idf:000][i2s_in]: W (1078949) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:46][D][esp-idf:000][i2s_in]: W (1078953) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:46][D][esp-idf:000][i2s_in]: W (1078956) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:46][D][esp-idf:000][i2s_in]: W (1078959) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+
+[13:56:46][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from ABORTING to STOPPED. (REQ: 1)
+
+[13:56:46][D][micro_wake_word:195]: State changed from STOPPING_MICROPHONE to IDLE
+
+[13:56:46][D][media_player:061]: 'Onju Voice #02' - Setting
+[13:56:46][D][media_player:068]:   Media URL: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:56:46][D][esp_audio_sources:098]: Set new uri: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:56:46][D][adf_media_player:057]: Got control call in state IDLE
+[13:56:46][D][adf_media_player:058]: req_track stream uri: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:56:46][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:56:46][D][voice_assistant:504]: State changed from IDLE to START_MICROPHONE
+[13:56:46][D][voice_assistant:510]: Desired state set to START_PIPELINE
+[13:56:46][D][voice_assistant:221]: Starting Microphone
+
+[13:56:46][D][esp_adf_pipeline.microphone:025]: start request while ine state 0
+
+[13:56:46][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:56:46][D][voice_assistant:504]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+
+[13:56:46][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+[13:56:46][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+
+[13:56:46][I][adf_media_player:192]: got new pipeline state: 3, while in MP state IDLE
+
+[13:56:46][D][adf_i2s_out:141]: Set final i2s settings: 16000
+[13:56:46][D][esp_audio_processors:124]: Current settings: SRC: rate: 24000, ch: 1 bits: 16, DST: rate: 16000, ch: 1, bits 16
+
+[13:56:46][I][adf_media_player:256]: current mp state: PLAYING
+[13:56:46][I][adf_media_player:257]: anouncement: false
+[13:56:46][I][adf_media_player:258]: play_intent: false
+[13:56:46][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:46][D][adf_audio_element:108]: Preparing [i2s_in]...
+[13:56:46][D][esp_audio_sources:103]: Prepare elements called (initial_call)!
+[13:56:46][D][esp_audio_sources:137]: Use fixed settings: no
+[13:56:46][D][esp_audio_sources:138]: Streamer status: 6
+[13:56:46][D][esp_audio_sources:139]: decoder status: 6
+[13:56:46][D][esp_audio_sources:140]: stream uri: https://house.savin.nyc/local/onju/wakeup.mp3
+
+[13:56:46][D][adf_audio_element:108]: Preparing [http]...
+[13:56:46][D][adf_audio_element:108]: Preparing [decoder]...
+[13:56:46][D][adf_audio_element:108]: Preparing [pcm_reader]...
+[13:56:46][D][adf_audio_element:108]: Preparing [resampler]...
+[13:56:46][D][adf_audio_element:108]: Preparing [i2s_out]...
+
+[13:56:46][D][esp_adf_pipeline:342]: wait for preparation, done
+
+[13:56:46][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:56:46][D][adf_audio_element:165]: Resuming [i2s_in]...
+[13:56:46][D][adf_audio_element:172]: [i2s_in] Sending resume command.
+
+[13:56:46][D][esp-idf:000][i2s_in]: I (1079078) AUDIO_ELEMENT: [i2s_in] AEL_MSG_CMD_RESUME,state:1
+
+[13:56:46][D][adf_audio_element:191]: [i2s_in] Checking State, got 78
+
+[13:56:46][I][esp_adf_pipeline:132]: [ i2s_in ] status: 12
+
+[13:56:46][D][adf_audio_element:165]: Resuming [http]...
+[13:56:46][D][adf_audio_element:172]: [http] Sending resume command.
+[13:56:46][D][adf_audio_element:165]: Resuming [decoder]...
+[13:56:46][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:56:46][D][esp-idf:000][decoder]: I (1079098) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:56:46][D][esp-idf:000][decoder]: I (1079122) MP3_DECODER: MP3 opened
+
+[13:56:46][D][voice_assistant:627]: Event Type: 1
+[13:56:46][D][voice_assistant:630]: Assist Pipeline running
+
+[13:56:46][D][adf_audio_element:191]: [http] Checking State, got 79
+[13:56:46][D][adf_audio_element:191]: [decoder] Checking State, got 79
+
+[13:56:46][D][voice_assistant:627]: Event Type: 3
+[13:56:46][D][voice_assistant:641]: STT started
+
+[13:56:46][D][light:036]: 'top_led' Setting:
+[13:56:46][D][light:051]:   Brightness: 100%
+[13:56:46][D][light:059]:   Red: 100%, Green: 100%, Blue: 100%
+[13:56:46][D][light:109]:   Effect: 'listening'
+
+[13:56:47][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:56:47][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:56:47][D][esp-idf:000][http]: I (1080075) HTTP_STREAM: total_bytes=19527
+
+[13:56:47][I][HTTPStreamReader:230]: Codec Format reported: 3.
+[13:56:47][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=44100, bits=16, ch=2
+[13:56:47][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=192000, duration=0, bytes=-93
+
+[13:56:47][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:56:47][D][esp_audio_processors:108]: Received request from: HTTPStreamReader
+[13:56:47][D][esp_audio_processors:113]: New settings: SRC: rate: 44100, ch: 2 bits: 16, DST: rate: 16000, ch: 1, bits 16
+[13:56:47][D][esp_audio_processors:124]: Current settings: SRC: rate: 44100, ch: 2 bits: 16, DST: rate: 16000, ch: 1, bits 16
+
+[13:56:47][D][adf_audio_element:108]: Preparing [http]...
+[13:56:47][D][adf_audio_element:108]: Preparing [decoder]...
+
+[13:56:47][D][esp-idf:000][decoder]: W (1080152) AUDIO_ELEMENT: OUT-[decoder] AEL_IO_ABORT
+[13:56:47][D][esp-idf:000][decoder]: W (1080156) MP3_DECODER: output aborted -3
+[13:56:47][D][esp-idf:000][decoder]: I (1080160) MP3_DECODER: Closed
+
+[13:56:47][D][esp_audio_sources:193]: Preparation done!
+
+[13:56:47][D][voice_assistant:627]: Event Type: 11
+[13:56:47][D][voice_assistant:783]: Starting STT by VAD
+
+[13:56:47][D][vad:410]: VAD started
+
+[13:56:47][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:56:47][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:56:47][I][adf_media_player:192]: got new pipeline state: 5, while in MP state PLAYING
+[13:56:47][I][adf_media_player:256]: current mp state: PLAYING
+[13:56:47][I][adf_media_player:257]: anouncement: false
+[13:56:47][I][adf_media_player:258]: play_intent: false
+[13:56:47][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:47][D][adf_audio_element:165]: Resuming [http]...
+[13:56:47][D][adf_audio_element:172]: [http] Sending resume command.
+[13:56:47][D][adf_audio_element:165]: Resuming [decoder]...
+[13:56:47][D][adf_audio_element:172]: [decoder] Sending resume command.
+[13:56:47][D][adf_audio_element:165]: Resuming [resampler]...
+[13:56:47][D][adf_audio_element:172]: [resampler] Sending resume command.
+
+[13:56:47][D][esp-idf:000][resampler]: I (1080227) AUDIO_ELEMENT: [resampler] AEL_MSG_CMD_RESUME,state:1
+
+[13:56:47][D][adf_audio_element:191]: [resampler] Checking State, got 79
+
+[13:56:47][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:56:47][I][adf_media_player:192]: got new pipeline state: 6, while in MP state PLAYING
+[13:56:47][I][adf_media_player:256]: current mp state: PLAYING
+[13:56:47][I][adf_media_player:257]: anouncement: false
+[13:56:47][I][adf_media_player:258]: play_intent: false
+[13:56:47][I][adf_media_player:259]: current_uri_: yes
+[13:56:47][D][esp-idf:000][resampler]: I (1080466) RSP_FILTER: sample rate of source data : 44100, channel of source data : 2, sample rate of destination data : 16000, channel of destination data : 1
+
+[13:56:47][I][esp_adf_pipeline:132]: [ resampler ] status: 12
+[13:56:48][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:56:48][I][esp_audio_sources:033][http]: Receive http event: 4
+[13:56:48][D][esp-idf:000][http]: I (1081383) HTTP_STREAM: total_bytes=19527
+
+[13:56:48][I][HTTPStreamReader:230]: Codec Format reported: 3.
+[13:56:48][I][esp_adf_pipeline:132]: [ http ] status: 12
+[13:56:48][I][esp_adf_pipeline:132]: [ decoder ] status: 12
+[13:56:48][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=44100, bits=16, ch=2
+[13:56:48][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=192000, duration=0, bytes=-93
+[13:56:49][D][esp-idf:000][http]: W (1081828) HTTP_STREAM: No more data,errno:0, total_bytes:19527, rlen = 0
+
+[13:56:49][I][esp_audio_sources:033][http]: Receive http event: 7
+
+[13:56:49][D][esp-idf:000][http]: I (1081836) AUDIO_ELEMENT: IN-[http] AEL_IO_DONE,0
+
+[13:56:49][I][esp_adf_pipeline:123]: [ http ] byte_pos: 0, total: 19527
+[13:56:49][I][esp_adf_pipeline:132]: [ http ] status: 15
+[13:56:49][I][esp_adf_pipeline:135]: current state: RUNNING
+[13:56:49][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from RUNNING to FINISHING. (REQ: 0)
+
+[13:56:49][I][adf_media_player:192]: got new pipeline state: 7, while in MP state PLAYING
+[13:56:49][I][adf_media_player:256]: current mp state: PLAYING
+[13:56:49][I][adf_media_player:257]: anouncement: false
+[13:56:49][I][adf_media_player:258]: play_intent: false
+[13:56:49][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:49][D][esp-idf:000][decoder]: I (1081987) AUDIO_ELEMENT: IN-[decoder] AEL_IO_DONE,-2
+[13:56:49][D][esp-idf:000][decoder]: I (1082075) MP3_DECODER: Closed
+
+[13:56:49][I][esp_adf_pipeline:123]: [ decoder ] byte_pos: 0, total: -93
+[13:56:49][I][esp_adf_pipeline:132]: [ decoder ] status: 15
+[13:56:49][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:56:49][D][esp-idf:000][resampler]: I (1082105) AUDIO_ELEMENT: IN-[resampler] AEL_IO_DONE,-2
+
+[13:56:49][I][esp_adf_pipeline:132]: [ resampler ] status: 15
+[13:56:49][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:56:49][D][esp-idf:000][i2s_out]: I (1082185) AUDIO_ELEMENT: IN-[i2s_out] AEL_IO_DONE,-2
+
+[13:56:49][D][voice_assistant:627]: Event Type: 12
+[13:56:49][D][voice_assistant:787]: STT by VAD end
+[13:56:49][D][voice_assistant:504]: State changed from STREAMING_MICROPHONE to STOP_MICROPHONE
+[13:56:49][D][voice_assistant:510]: Desired state set to AWAITING_RESPONSE
+
+[13:56:49][D][esp_adf_pipeline:070]: Called 'stop' while in RUNNING state.
+
+[13:56:49][D][voice_assistant:504]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+
+[13:56:49][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from RUNNING to ABORTING. (REQ: 1)
+
+[13:56:49][D][light:036]: 'top_led' Setting:
+[13:56:49][D][light:051]:   Brightness: 70%
+[13:56:49][D][light:059]:   Red: 0%, Green: 20%, Blue: 100%
+[13:56:49][D][light:109]:   Effect: 'processing'
+
+[13:56:49][D][vad:422]: VAD finished
+
+[13:56:49][D][adf_audio_element:324]: [i2s_in] Checking State for stopping, got 3
+
+[13:56:49][D][esp-idf:000][i2s_in]: W (1082285) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:49][D][esp-idf:000][i2s_in]: W (1082290) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:49][D][esp-idf:000][i2s_in]: W (1082294) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:49][D][esp-idf:000][i2s_in]: W (1082298) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:56:49][D][esp-idf:000][i2s_in]: W (1082301) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+
+[13:56:49][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from ABORTING to STOPPED. (REQ: 1)
+
+[13:56:49][D][voice_assistant:504]: State changed from STOPPING_MICROPHONE to AWAITING_RESPONSE
+[13:56:49][D][voice_assistant:627]: Event Type: 4
+[13:56:49][D][voice_assistant:655]: Speech recognised as: "Turn the lights in the master bedroom."
+[13:56:49][D][voice_assistant:627]: Event Type: 5
+[13:56:49][D][voice_assistant:660]: Intent started
+
+[13:56:49][D][va-intent:400]: VA Intent started
+
+[13:56:49][I][esp_adf_pipeline:123]: [ i2s_out ] byte_pos: 0, total: 0
+[13:56:49][I][esp_adf_pipeline:132]: [ i2s_out ] status: 15
+[13:56:49][I][esp_adf_pipeline:135]: current state: FINISHING
+[13:56:49][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from FINISHING to STOPPED. (REQ: 1)
+
+[13:56:49][I][adf_media_player:192]: got new pipeline state: 4, while in MP state PLAYING
+[13:56:49][I][adf_media_player:256]: current mp state: IDLE
+[13:56:49][I][adf_media_player:257]: anouncement: false
+[13:56:49][I][adf_media_player:258]: play_intent: false
+
+[13:56:49][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:52][D][voice_assistant:627]: Event Type: 6
+
+[13:56:52][D][va-intent:405]: VA Intent finished
+
+[13:56:52][D][voice_assistant:627]: Event Type: 7
+[13:56:52][D][voice_assistant:683]: Response: "Could you specify whether you want the lights in the master bedroom turned on or off?"
+[13:56:52][D][voice_assistant:627]: Event Type: 8
+[13:56:52][D][voice_assistant:705]: Response URL: "https://house.savin.nyc/api/tts_proxy/61afdd0756c94f7cab174acd330fc2cd06ba9094_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3"
+[13:56:52][D][voice_assistant:504]: State changed from AWAITING_RESPONSE to STREAMING_RESPONSE
+[13:56:52][D][voice_assistant:510]: Desired state set to STREAMING_RESPONSE
+
+[13:56:52][D][media_player:061]: 'Onju Voice #02' - Setting
+[13:56:52][D][media_player:068]:   Media URL: https://house.savin.nyc/api/tts_proxy/61afdd0756c94f7cab174acd330fc2cd06ba9094_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3
+[13:56:52][D][media_player:074]:  Announcement: yes
+
+[13:56:52][D][adf_media_player:057]: Got control call in state IDLE
+[13:56:52][D][adf_media_player:058]: req_track stream uri: https://house.savin.nyc/api/tts_proxy/61afdd0756c94f7cab174acd330fc2cd06ba9094_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3
+
+[13:56:52][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:56:52][D][light:036]: 'top_led' Setting:
+[13:56:52][D][light:059]:   Red: 20%, Green: 100%, Blue: 0%
+[13:56:52][D][light:109]:   Effect: 'speaking'
+
+[13:56:52][D][voice_assistant:627]: Event Type: 2
+[13:56:52][D][voice_assistant:719]: Assist Pipeline ended
+
+[13:56:52][I][adf_media_player:192]: got new pipeline state: 3, while in MP state IDLE
+
+[13:56:52][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:56:52][D][esp_audio_processors:124]: Current settings: SRC: rate: 44100, ch: 2 bits: 16, DST: rate: 16000, ch: 1, bits 16
+
+[13:56:52][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:56:52][I][adf_media_player:257]: anouncement: yes
+[13:56:52][I][adf_media_player:258]: play_intent: false
+[13:56:52][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:52][D][switch:012]: 'Continued Conversation' Turning ON.
+
+[13:56:52][D][esp_audio_sources:103]: Prepare elements called (initial_call)!
+[13:56:52][D][esp_audio_sources:137]: Use fixed settings: no
+[13:56:52][D][esp_audio_sources:138]: Streamer status: 6
+[13:56:52][D][esp_audio_sources:139]: decoder status: 6
+[13:56:52][D][esp_audio_sources:140]: stream uri: https://house.savin.nyc/api/tts_proxy/61afdd0756c94f7cab174acd330fc2cd06ba9094_en-us_05b2f5bebd_tts.home_assistant_cloud.mp3
+[13:56:52][D][adf_audio_element:108]: Preparing [http]...
+[13:56:52][D][adf_audio_element:108]: Preparing [decoder]...
+[13:56:52][D][adf_audio_element:108]: Preparing [resampler]...
+[13:56:52][D][adf_audio_element:108]: Preparing [i2s_out]...
+[13:56:52][D][adf_audio_element:165]: Resuming [http]...
+[13:56:52][D][adf_audio_element:172]: [http] Sending resume command.
+[13:56:52][D][adf_audio_element:165]: Resuming [decoder]...
+[13:56:52][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:56:52][D][esp-idf:000][decoder]: I (1085108) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:56:52][D][esp-idf:000][decoder]: I (1085113) MP3_DECODER: MP3 opened
+
+[13:56:52][D][light:036]: 'top_led' Setting:
+[13:56:52][D][light:051]:   Brightness: 60%
+[13:56:52][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[13:56:52][D][light:109]:   Effect: 'listening_ww'
+
+[13:56:52][D][micro_wake_word:399]: Resetting buffers and probabilities
+[13:56:52][D][micro_wake_word:195]: State changed from IDLE to START_MICROPHONE
+
+[13:56:52][W][component:237]: Component voice_assistant took a long time for an operation (59 ms).
+[13:56:52][W][component:238]: Components should block for at most 30 ms.
+
+[13:56:52][D][micro_wake_word:107]: Starting Microphone
+
+[13:56:52][D][esp_adf_pipeline.microphone:025]: start request while ine state 0
+
+[13:56:52][D][esp_adf_pipeline:060]: Starting request, current state STOPPED
+
+[13:56:52][D][micro_wake_word:195]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+
+[13:56:52][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STOPPED to PREPARING. (REQ: 0)
+
+[13:56:52][D][adf_audio_element:108]: Preparing [i2s_in]...
+[13:56:52][D][adf_audio_element:108]: Preparing [pcm_reader]...
+
+[13:56:52][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:56:52][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:56:52][D][adf_audio_element:165]: Resuming [i2s_in]...
+[13:56:52][D][adf_audio_element:172]: [i2s_in] Sending resume command.
+
+[13:56:52][D][esp-idf:000][i2s_in]: I (1085587) AUDIO_ELEMENT: [i2s_in] AEL_MSG_CMD_RESUME,state:1
+
+[13:56:52][D][adf_audio_element:191]: [i2s_in] Checking State, got 78
+
+[13:56:52][I][esp_adf_pipeline:132]: [ i2s_in ] status: 12
+
+[13:56:52][D][adf_audio_element:191]: [pcm_reader] Checking State, got 65
+
+[13:56:52][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:56:52][D][micro_wake_word:195]: State changed from STARTING_MICROPHONE to DETECTING_WAKE_WORD
+
+[13:56:53][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:56:53][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:56:53][D][esp-idf:000][http]: I (1085996) HTTP_STREAM: total_bytes=31744
+
+[13:56:53][I][HTTPStreamReader:230]: Codec Format reported: 3.
+[13:56:53][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=24000, bits=16, ch=1
+[13:56:53][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=48000, duration=0, bytes=-1216
+
+[13:56:53][D][adf_i2s_out:141]: Set final i2s settings: 16000
+
+[13:56:53][D][esp_audio_processors:108]: Received request from: HTTPStreamReader
+[13:56:53][D][esp_audio_processors:113]: New settings: SRC: rate: 24000, ch: 1 bits: 16, DST: rate: 16000, ch: 1, bits 16
+[13:56:53][D][esp_audio_processors:124]: Current settings: SRC: rate: 24000, ch: 1 bits: 16, DST: rate: 16000, ch: 1, bits 16
+
+[13:56:53][D][adf_audio_element:108]: Preparing [http]...
+[13:56:53][D][adf_audio_element:108]: Preparing [decoder]...
+
+[13:56:53][D][esp-idf:000][decoder]: W (1086067) AUDIO_ELEMENT: OUT-[decoder] AEL_IO_ABORT
+[13:56:53][D][esp-idf:000][decoder]: W (1086072) MP3_DECODER: output aborted -3
+[13:56:53][D][esp-idf:000][decoder]: I (1086077) MP3_DECODER: Closed
+
+[13:56:53][D][esp_audio_sources:193]: Preparation done!
+[13:56:53][D][esp_adf_pipeline:342]: wait for preparation, done
+[13:56:53][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from PREPARING to STARTING. (REQ: 0)
+
+[13:56:53][I][adf_media_player:192]: got new pipeline state: 5, while in MP state ANNOUNCING
+[13:56:53][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:56:53][I][adf_media_player:257]: anouncement: yes
+[13:56:53][I][adf_media_player:258]: play_intent: false
+[13:56:53][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:53][D][adf_audio_element:165]: Resuming [http]...
+[13:56:53][D][adf_audio_element:172]: [http] Sending resume command.
+[13:56:53][D][adf_audio_element:165]: Resuming [decoder]...
+[13:56:53][D][adf_audio_element:172]: [decoder] Sending resume command.
+
+[13:56:53][D][esp-idf:000][decoder]: I (1086226) AUDIO_ELEMENT: [decoder] AEL_MSG_CMD_RESUME,state:1
+[13:56:53][D][esp-idf:000][decoder]: I (1086278) MP3_DECODER: MP3 opened
+
+[13:56:53][I][esp_adf_pipeline:132]: [ resampler ] status: 12
+[13:56:53][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from STARTING to RUNNING. (REQ: 0)
+
+[13:56:53][I][adf_media_player:192]: got new pipeline state: 6, while in MP state ANNOUNCING
+[13:56:53][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:56:53][I][adf_media_player:257]: anouncement: yes
+[13:56:53][I][adf_media_player:258]: play_intent: false
+[13:56:53][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:54][I][esp_audio_sources:033][http]: Receive http event: 2
+[13:56:54][I][esp_audio_sources:033][http]: Receive http event: 4
+
+[13:56:54][D][esp-idf:000][http]: I (1087076) HTTP_STREAM: total_bytes=31744
+
+[13:56:54][I][HTTPStreamReader:230]: Codec Format reported: 3.
+
+[13:56:54][I][esp_adf_pipeline:132]: [ http ] status: 12
+[13:56:54][I][esp_adf_pipeline:132]: [ decoder ] status: 12
+
+[13:56:54][I][HTTPStreamReader:240]: [ * ] Receive music info from decoder, sample_rates=24000, bits=16, ch=1
+[13:56:54][I][HTTPStreamReader:243]: [ * ] Receive music info from decoder, codec_fmt=3, bps=48000, duration=0, bytes=-1216
+
+[13:56:58][D][esp-idf:000][http]: W (1090908) HTTP_STREAM: No more data,errno:0, total_bytes:31744, rlen = 0
+
+[13:56:58][I][esp_audio_sources:033][http]: Receive http event: 7
+
+[13:56:58][D][esp-idf:000][http]: I (1090915) AUDIO_ELEMENT: IN-[http] AEL_IO_DONE,0
+
+[13:56:58][I][esp_adf_pipeline:123]: [ http ] byte_pos: 0, total: 31744
+[13:56:58][I][esp_adf_pipeline:132]: [ http ] status: 15
+[13:56:58][I][esp_adf_pipeline:135]: current state: RUNNING
+[13:56:58][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from RUNNING to FINISHING. (REQ: 0)
+
+[13:56:58][I][adf_media_player:192]: got new pipeline state: 7, while in MP state ANNOUNCING
+[13:56:58][I][adf_media_player:256]: current mp state: ANNOUNCING
+[13:56:58][I][adf_media_player:257]: anouncement: yes
+[13:56:58][I][adf_media_player:258]: play_intent: false
+[13:56:58][I][adf_media_player:259]: current_uri_: yes
+
+[13:56:58][D][esp-idf:000][decoder]: I (1091611) AUDIO_ELEMENT: IN-[decoder] AEL_IO_DONE,-2
+[13:56:59][D][esp-idf:000][decoder]: I (1091963) MP3_DECODER: Closed
+
+[13:56:59][I][esp_adf_pipeline:123]: [ decoder ] byte_pos: 0, total: -1216
+[13:56:59][I][esp_adf_pipeline:132]: [ decoder ] status: 15
+[13:56:59][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:56:59][D][esp-idf:000][resampler]: I (1092088) AUDIO_ELEMENT: IN-[resampler] AEL_IO_DONE,-2
+
+[13:56:59][I][esp_adf_pipeline:132]: [ resampler ] status: 15
+[13:56:59][I][esp_adf_pipeline:135]: current state: FINISHING
+
+[13:56:59][D][esp-idf:000][i2s_out]: I (1092168) AUDIO_ELEMENT: IN-[i2s_out] AEL_IO_DONE,-2
+
+[13:56:59][I][esp_adf_pipeline:123]: [ i2s_out ] byte_pos: 0, total: 0
+[13:56:59][I][esp_adf_pipeline:132]: [ i2s_out ] status: 15
+[13:56:59][I][esp_adf_pipeline:135]: current state: FINISHING
+[13:56:59][D][esp_adf_pipeline:448]: [MediaPlayer] Pipeline changed from FINISHING to STOPPED. (REQ: 1)
+
+[13:56:59][I][adf_media_player:192]: got new pipeline state: 4, while in MP state ANNOUNCING
+[13:56:59][I][adf_media_player:256]: current mp state: IDLE
+[13:56:59][I][adf_media_player:257]: anouncement: false
+[13:56:59][I][adf_media_player:258]: play_intent: false
+[13:56:59][I][adf_media_player:259]: current_uri_: yes
+
+[13:57:01][D][voice_assistant:504]: State changed from STREAMING_RESPONSE to IDLE
+[13:57:01][D][voice_assistant:510]: Desired state set to IDLE
+[13:57:01][D][voice_assistant:504]: State changed from IDLE to START_MICROPHONE
+[13:57:01][D][voice_assistant:510]: Desired state set to START_PIPELINE
+[13:57:01][D][voice_assistant:221]: Starting Microphone
+
+[13:57:01][D][esp_adf_pipeline.microphone:025]: start request while ine state 2
+
+[13:57:01][D][voice_assistant:504]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[13:57:01][D][voice_assistant:504]: State changed from STARTING_MICROPHONE to START_PIPELINE
+[13:57:01][D][voice_assistant:275]: Requesting start...
+[13:57:01][D][voice_assistant:504]: State changed from START_PIPELINE to STARTING_PIPELINE
+[13:57:01][D][voice_assistant:525]: Client started, streaming microphone
+[13:57:01][D][voice_assistant:504]: State changed from STARTING_PIPELINE to STREAMING_MICROPHONE
+[13:57:01][D][voice_assistant:510]: Desired state set to STREAMING_MICROPHONE
+[13:57:01][D][voice_assistant:627]: Event Type: 1
+[13:57:01][D][voice_assistant:630]: Assist Pipeline running
+[13:57:01][D][voice_assistant:627]: Event Type: 3
+[13:57:01][D][voice_assistant:641]: STT started
+
+[13:57:01][D][light:036]: 'top_led' Setting:
+[13:57:01][D][light:051]:   Brightness: 100%
+[13:57:01][D][light:059]:   Red: 100%, Green: 100%, Blue: 100%
+[13:57:01][D][light:109]:   Effect: 'listening'
+
+[13:57:16][D][switch:016]: 'Continued Conversation' Turning OFF.
+[13:57:16][D][switch:055]: 'Continued Conversation': Sending state OFF
+
+[13:57:39][D][esp32.preferences:114]: Saving 1 preferences to flash...
+[13:57:39][D][esp32.preferences:143]: Saving 1 preferences to flash: 1 cached, 0 written, 0 failed
+
+[13:57:44][D][voice_assistant:627]: Event Type: 12
+[13:57:44][D][voice_assistant:787]: STT by VAD end
+[13:57:44][D][voice_assistant:504]: State changed from STREAMING_MICROPHONE to STOP_MICROPHONE
+[13:57:44][D][voice_assistant:510]: Desired state set to AWAITING_RESPONSE
+
+[13:57:44][D][esp_adf_pipeline:070]: Called 'stop' while in RUNNING state.
+
+[13:57:44][D][voice_assistant:504]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+
+[13:57:44][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from RUNNING to ABORTING. (REQ: 1)
+
+[13:57:44][D][light:036]: 'top_led' Setting:
+[13:57:44][D][light:051]:   Brightness: 70%
+[13:57:44][D][light:059]:   Red: 0%, Green: 20%, Blue: 100%
+[13:57:44][D][light:109]:   Effect: 'processing'
+
+[13:57:44][D][vad:422]: VAD finished
+
+[13:57:44][D][adf_audio_element:324]: [i2s_in] Checking State for stopping, got 3
+
+[13:57:44][D][esp-idf:000][i2s_in]: W (1137524) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000][i2s_in]: W (1137528) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000][i2s_in]: W (1137532) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000][i2s_in]: W (1137536) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+
+[13:57:44][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from ABORTING to STOPPED. (REQ: 1)
+
+[13:57:44][D][voice_assistant:504]: State changed from STOPPING_MICROPHONE to AWAITING_RESPONSE
+[13:57:44][D][voice_assistant:627]: Event Type: 0
+[13:57:44][E][voice_assistant:759]: Error: stt-no-text-recognized - No text recognized
+[13:57:44][D][voice_assistant:620]: Signaling stop...
+[13:57:44][D][voice_assistant:504]: State changed from AWAITING_RESPONSE to STOP_MICROPHONE
+[13:57:44][D][voice_assistant:510]: Desired state set to IDLE
+
+[13:57:44][D][esp-idf:000]: W (1137581) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137583) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137586) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137588) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137591) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137593) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137596) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137600) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137602) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137604) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137606) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137609) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137611) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137614) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137616) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137619) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137622) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137625) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137628) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT
+[13:57:44][D][esp-idf:000]: W (1137632) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137634) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABOR
+[13:57:44][D][esp-idf:000]: W (1137637) AUDIO_EVT: There is no space in external queue
+[13:57:44][D][esp-idf:000]: W (1137640) AUDIO_ELEMENT: IN-[pcm_reader] AEL_IO_ABORT

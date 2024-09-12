@@ -1,0 +1,39 @@
+substitutions:
+  name: olimex-bluetooth-proxy-01
+  friendly_name: "Bluetooth Proxy #01"
+
+packages:
+  esphome.bluetooth-proxy: github://esphome/firmware/bluetooth-proxy/olimex-esp32-poe-iso.yaml@main
+
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+
+api:
+  encryption:
+    key: !secret olimex-esp32-poe-iso-bluetooth-proxy-01-api-encryption-key
+
+ota:
+  password: !secret olimex-esp32-poe-iso-bluetooth-proxy-01-ota-password
+
+web_server:
+  port: 80
+
+prometheus:
+
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 1100ms
+    window: 1100ms
+    active: true
+
+bluetooth_proxy:
+  active: true
+
+button:
+  - platform: safe_mode
+    name: "Safe Mode Boot"
+    entity_category: diagnostic
+  - platform: restart
+    name: "Restart the Device"

@@ -1,0 +1,30 @@
+[15:43:06][D][binary_sensor:036]: 'Disable wake word': Sending state ON
+
+[15:43:06][D][micro_wake_word:195]: State changed from DETECTING_WAKE_WORD to STOP_MICROPHONE
+
+[15:43:06][D][light:036]: 'led_top' Setting:
+[15:43:06][D][light:051]:   Brightness: 50%
+[15:43:06][D][light:059]:   Red: 100%, Green: 75%, Blue: 0%
+[15:43:06][D][light:085]:   Transition length: 0.1s
+[15:43:06][D][light:091]:   Effect: 'None'
+
+[15:43:06][D][micro_wake_word:129]: Stopping Microphone
+
+[15:43:06][D][esp_adf_pipeline:070]: Called 'stop' while in RUNNING state.
+
+[15:43:06][D][micro_wake_word:195]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+
+[15:43:06][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from RUNNING to ABORTING. (REQ: 1)
+
+[15:43:06][D][adf_audio_element:324]: [i2s_in] Checking State for stopping, got 3
+
+[15:43:06][D][esp-idf:000][i2s_in]: W (486728) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[15:43:06][D][esp-idf:000][i2s_in]: W (486731) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[15:43:06][D][esp-idf:000][i2s_in]: W (486735) AUDIO_ELEMENT: OUT-[i2s_in] AEL_IO_ABORT
+[15:43:06][D][esp-idf:000][resampler]: W (486739) AUDIO_ELEMENT: IN-[resampler] AEL_IO_ABORT
+
+[15:43:06][D][adf_audio_element:324]: [pcm_reader] Checking State for stopping, got 3
+
+[15:43:06][D][esp_adf_pipeline:448]: [ADFMicrophone] Pipeline changed from ABORTING to STOPPED. (REQ: 1)
+
+[15:43:06][D][micro_wake_word:195]: State changed from STOPPING_MICROPHONE to IDLE

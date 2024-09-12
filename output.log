@@ -1,0 +1,76 @@
+[16:06:28][D][voice_assistant:523]: Event Type: 1
+[16:06:28][D][voice_assistant:526]: Assist Pipeline running
+[16:06:28][D][light:036]: 'top_led' Setting:
+[16:06:28][D][light:051]:   Brightness: 60%
+[16:06:28][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[16:06:28][D][light:085]:   Transition length: 0.1s
+[16:06:28][D][voice_assistant:523]: Event Type: 9
+[16:06:31][D][voice_assistant:523]: Event Type: 10
+[16:06:31][D][voice_assistant:532]: Wake word detected
+[16:06:31][D][voice_assistant:523]: Event Type: 3
+[16:06:31][D][voice_assistant:537]: STT started
+[16:06:31][D][light:036]: 'top_led' Setting:
+[16:06:31][D][light:051]:   Brightness: 100%
+[16:06:31][D][light:059]:   Red: 100%, Green: 100%, Blue: 100%
+[16:06:31][D][light:109]:   Effect: 'listening'
+[16:06:32][D][voice_assistant:523]: Event Type: 11
+[16:06:32][D][voice_assistant:677]: Starting STT by VAD
+[16:06:33][D][voice_assistant:523]: Event Type: 12
+[16:06:33][D][voice_assistant:681]: STT by VAD end
+[16:06:33][D][voice_assistant:416]: State changed from STREAMING_MICROPHONE to STOP_MICROPHONE
+[16:06:33][D][voice_assistant:422]: Desired state set to AWAITING_RESPONSE
+[16:06:33][D][voice_assistant:416]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+[16:06:33][D][light:036]: 'top_led' Setting:
+[16:06:33][D][light:051]:   Brightness: 70%
+[16:06:33][D][light:059]:   Red: 0%, Green: 20%, Blue: 100%
+[16:06:33][D][light:109]:   Effect: 'processing'
+[16:06:33][D][voice_assistant:416]: State changed from STOPPING_MICROPHONE to AWAITING_RESPONSE
+[16:06:34][D][voice_assistant:523]: Event Type: 4
+[16:06:34][D][voice_assistant:551]: Speech recognised as: " What is the weather?"
+[16:06:34][D][voice_assistant:523]: Event Type: 5
+[16:06:34][D][voice_assistant:556]: Intent started
+[16:06:34][D][voice_assistant:523]: Event Type: 6
+[16:06:34][D][voice_assistant:523]: Event Type: 7
+[16:06:34][D][voice_assistant:579]: Response: "10.7 °C and sunny"
+[16:06:34][D][voice_assistant:523]: Event Type: 8
+[16:06:34][D][voice_assistant:599]: Response URL: "https://house.savin.nyc/api/tts_proxy/caadd9e3a79d4ffd58d66390e951fcff32b9e2ac_en-us_28ce9815cb_tts.home_assistant_cloud.mp3"
+[16:06:34][D][voice_assistant:416]: State changed from AWAITING_RESPONSE to STREAMING_RESPONSE
+[16:06:34][D][voice_assistant:422]: Desired state set to STREAMING_RESPONSE
+[16:06:34][D][media_player:059]: 'Onju Voice #03' - Setting
+[16:06:34][D][media_player:066]:   Media URL: https://house.savin.nyc/api/tts_proxy/caadd9e3a79d4ffd58d66390e951fcff32b9e2ac_en-us_28ce9815cb_tts.home_assistant_cloud.mp3
+[16:06:34][D][media_player:059]: 'Onju Voice #03' - Setting
+[16:06:34][D][media_player:066]:   Media URL: https://house.savin.nyc/api/tts_proxy/caadd9e3a79d4ffd58d66390e951fcff32b9e2ac_en-us_28ce9815cb_tts.home_assistant_cloud.mp3
+[16:06:34][D][light:036]: 'top_led' Setting:
+[16:06:34][D][light:059]:   Red: 20%, Green: 100%, Blue: 0%
+[16:06:34][D][light:109]:   Effect: 'speaking'
+[16:06:34][D][voice_assistant:523]: Event Type: 2
+[16:06:34][D][voice_assistant:613]: Assist Pipeline ended
+[16:06:35][W][component:232]: Component i2s_audio.media_player took a long time for an operation (1112 ms).
+[16:06:35][W][component:233]: Components should block for at most 30 ms.
+[16:06:36][W][component:232]: Component i2s_audio.media_player took a long time for an operation (52 ms).
+[16:06:36][W][component:233]: Components should block for at most 30 ms.
+[16:06:36][D][light:036]: 'top_led' Setting:
+[16:06:36][D][light:051]:   Brightness: 60%
+[16:06:36][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[16:06:36][D][light:109]:   Effect: 'listening_ww'
+[16:06:38][D][voice_assistant:416]: State changed from STREAMING_RESPONSE to IDLE
+[16:06:38][D][voice_assistant:422]: Desired state set to IDLE
+[16:06:38][D][voice_assistant:416]: State changed from IDLE to START_PIPELINE
+[16:06:38][D][voice_assistant:422]: Desired state set to START_MICROPHONE
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:202]: Requesting start...
+[16:06:38][D][voice_assistant:416]: State changed from START_PIPELINE to STARTING_PIPELINE
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:118]: microphone not running
+[16:06:38][D][voice_assistant:437]: Client started, streaming microphone
+[16:06:38][D][voice_assistant:416]: State changed from STARTING_PIPELINE to START_MICROPHONE
+[16:06:38][D][voice_assistant:422]: Desired state set to STREAMING_MICROPHONE
+[16:06:38][D][voice_assistant:155]: Starting Microphone
+[16:06:38][D][voice_assistant:416]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[16:06:38][D][voice_assistant:523]: Event Type: 1

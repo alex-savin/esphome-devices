@@ -1,0 +1,369 @@
+substitutions:
+  name: "sparkfun-esp12s-ir-blaster"
+  friendly_name: "IR Blaster #01"
+  project_version: "1.0.0"
+  device_description: "Sparkfun ESP8266 IR Blaster #01"
+  wifi_ap_password: "password"
+  api_encryption_key: "FZPl4wyYUVXmecCUCRGLNan/vOPw0UJm3Jkh72M/7W4="
+
+esphome:
+  name: '${name}'
+  comment: '${device_description}'
+  name_add_mac_suffix: false
+  project:
+    name: savin.ir_blaster
+    version: '${project_version}'
+  min_version: 2024.2.0
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+  level: INFO
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    password: "${wifi_ap_password}"
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "${api_encryption_key}"
+
+  services:
+    - service: send_ir
+      variables:
+        protocol: string
+        code: string
+        command: string
+        repeats: string
+      then:
+        - lambda: 'ESP_LOGD("main", "Protocol: %s - Code: %s - Command: %s",  protocol.c_str(), code.c_str(), command.c_str() ); '
+        - if:
+            condition: # --=[ *** LG *** ]=--
+              lambda: 'return protocol == "LG";'
+            then:
+              - logger.log: "Sending LG data...!"
+              - remote_transmitter.transmit_lg:
+                  data: !lambda |-
+                       int i;
+                       sscanf(code.c_str(), "%x", &i );
+                       return i;
+                  nbits: !lambda |-
+                        return std::stoi( command );
+
+# IR Blaster
+# by AA van Zoelen
+#
+# Version: 1.1
+# Date   : 23 Aug 2022
+#
+# Description
+# ===========
+# Protocol : String in UPPERCASE
+# Code     : Some protocols name this also data, address, wand_id, rc_code1
+# Command  : Some protocols name this also nbits, magnitude, rc_code2
+# Repeat   : Optionally set the code to be repeated a number of times. Otherwise use 1.
+#
+# Implemented protocols
+# - LG
+#   o POWER       data=0x20DF10EF, nbits=32
+#   o MUTE        data=0x20DF906F, nbits=32
+#   o HOME        data=0x20DF3EC1, nbits=32
+#   o VOL+        data=0x20DF40BF, nbits=32
+#   o VOL-        data=0x20DFC03F, nbits=32
+#   o CH+         data=0x20DF00FF, nbits=32
+#   o CH-         data=0x20DF807F, nbits=32
+#   o 0           data=0x20DF08F7, nbits=32
+#   o 1           data=0x20DF8877, nbits=32
+#   o 2           data=0x20DF48B7, nbits=32
+#   o 3           data=0x20DFC837, nbits=32
+#   o 4           data=0x20DF28D7, nbits=32
+#   o 5           data=0x20DFA857, nbits=32
+#   o 6           data=0x20DF6897, nbits=32
+#   o 7           data=0x20DFE817, nbits=32
+#   o 8           data=0x20DF18E7, nbits=32
+#   o 9           data=0x20DF9867, nbits=32
+#   o ARROW UP    data=0x20DF02FD, nbits=32
+#   o ARROW DOWN  data=0x20DF827D, nbits=32
+#   o ARROW LEFT  data=0x20DFE01F, nbits=32
+#   o ARROW RIGHT data=0x20DF609F, nbits=32
+#   o OK          data=0x20DF22DD, nbits=32
+#   o SLEEP       data=0x20DF708F, nbits=32
+#   o INPUT       data=0x20DFD02F, nbits=32
+#   o INFO        data=0x20DF55AA, nbits=32
+#
+# energy->20DFA956
+# av. mode->20DF0CF3
+# input->20DFD02F
+# tv/rad->20DF0FF0
+# list->20DFCA35
+# quick view->20DF58A7
+# guide->20DFD52A
+# home->20DFC23D
+# fav->20DF7887
+# ratio->20DF9E61
+# back->20DF14EB
+# info->20DF55AA
+# exit->20DFDA25
+# red button->20DF4EB1
+# green button->20DF8E71
+# yellow button->20DFC639
+# blue button ->20DF8679
+# text->20DF04FB
+# t.opot->20DF847B
+# subtitle->20DF9C63
+# stop->20DF8D72
+# play->20DF0DF2
+# pause->20DF5DA2
+# rew->20DFF10E
+# forward->20DF718E
+# ad->20DF8976
+#
+# POWER OFF->20DFA35C
+# POWER ON->20DF23DC
+#
+# INPUT Antenna->20DF6B94
+# INPUT Component 1->20DFFD02
+# INPUT AV->20DF5AA5
+# INPUT HDMI1->20DF738C
+# INPUT HDMI2->20DF33CC
+# INPUT HDMI3->20DF9768
+#
+# Netflix->20DF6A95
+# Amazon->20DF3AC5
+#
+#
+# Details
+# -------
+# MCU used is an 8285
+#
+# Minimal components
+# IR receiver such as TSOP38238 - IR receiver 
+# NPN transistor (e.g. BC549C, 2n2222)
+# IR LED
+#
+
+button:
+  - platform: template
+    name: "Power LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF10EF
+          nbits: 32
+
+  - platform: template
+    name: "Power OFF LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFA35C
+          nbits: 32
+          
+  - platform: template
+    name: "Power ON LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF23DC
+          nbits: 32
+
+  - platform: template
+    name: "UP Arrow LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF02FD
+          nbits: 32
+          
+  - platform: template
+    name: "DOWN Arrow LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF827D
+          nbits: 32
+          
+  - platform: template
+    name: "LEFT Arrow LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFE01F
+          nbits: 32
+          
+  - platform: template
+    name: "RIGHT Arrow LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF609F
+          nbits: 32
+  
+  - platform: template
+    name: "Input LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFD02F
+          nbits: 32
+
+# INPUT Antenna->20DF6B94
+# INPUT HDMI1->20DF738C
+# INPUT HDMI2->20DF33CC
+# INPUT HDMI3->20DF9768
+          
+  - platform: template
+    name: "Mute LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF906F
+          nbits: 32
+
+  - platform: template
+    name: "Home LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF3EC1
+          nbits: 32
+
+  - platform: template
+    name: "Vol Up LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF40BF
+          nbits: 32
+
+  - platform: template
+    name: "Vol Down LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFC03F
+          nbits: 32
+
+  - platform: template
+    name: "Chan Up LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF00FF
+          nbits: 32
+
+  - platform: template
+    name: "Chan Down LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF807F
+          nbits: 32
+
+  - platform: template
+    name: "Arrow Up LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF02FD
+          nbits: 32
+
+  - platform: template
+    name: "Arrow Down LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF827D
+          nbits: 32
+
+  - platform: template
+    name: "Arrow Left LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFE01F
+          nbits: 32
+
+  - platform: template
+    name: "Arrow Right LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF609F
+          nbits: 32
+
+  - platform: template
+    name: "Okay LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF22DD
+          nbits: 32
+
+  - platform: template
+    name: "0 Zero LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF08F7
+          nbits: 32
+
+  - platform: template
+    name: "1 One LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF8877
+          nbits: 32
+
+  - platform: template
+    name: "2 Two LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF48B7
+          nbits: 32
+
+  - platform: template
+    name: "3 Three LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFC837
+          nbits: 32
+
+  - platform: template
+    name: "4 Four LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF28D7
+          nbits: 32
+
+  - platform: template
+    name: "5 Five LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFA857
+          nbits: 32
+
+  - platform: template
+    name: "6 Six LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF6897
+          nbits: 32
+
+  - platform: template
+    name: "7 Seven LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DFE817
+          nbits: 32
+
+  - platform: template
+    name: "8 Eight LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF18E7
+          nbits: 32
+
+  - platform: template
+    name: "9 Nine LG"
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: 0x20DF9867
+          nbits: 32
+
+#remote_receiver:
+#  pin:
+#    number: GPIO14
+#    inverted: true
+#  dump: lg
+
+remote_transmitter:
+  pin: GPIO14
+  carrier_duty_percent: 50%

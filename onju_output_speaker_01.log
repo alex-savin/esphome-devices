@@ -1,0 +1,141 @@
+[16:37:39][D][micro_wake_word:162]: The 'alexa' model sliding average probability is 0.996 and most recent probability is 1.000
+[16:37:39][D][micro_wake_word:123]: Wake Word 'alexa' Detected
+[16:37:39][D][micro_wake_word:195]: State changed from DETECTING_WAKE_WORD to STOP_MICROPHONE
+[16:37:39][D][micro_wake_word:129]: Stopping Microphone
+[16:37:39][D][micro_wake_word:195]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+[16:37:39][D][esp-idf:000]: I (138305) I2S: DMA queue destroyed
+
+[16:37:39][D][micro_wake_word:195]: State changed from STOPPING_MICROPHONE to IDLE
+[16:37:39][D][voice_assistant:504]: State changed from IDLE to START_MICROPHONE
+[16:37:39][D][voice_assistant:510]: Desired state set to START_PIPELINE
+[16:37:39][D][voice_assistant:221]: Starting Microphone
+[16:37:39][D][ring_buffer:024]: Created ring buffer with size 16384
+[16:37:39][D][voice_assistant:504]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[16:37:39][D][esp-idf:000]: I (138326) I2S: DMA Malloc info, datalen=blocksize=1024, dma_buf_count=4
+
+[16:37:39][D][voice_assistant:504]: State changed from STARTING_MICROPHONE to START_PIPELINE
+[16:37:39][D][voice_assistant:275]: Requesting start...
+[16:37:39][D][voice_assistant:504]: State changed from START_PIPELINE to STARTING_PIPELINE
+[16:37:39][D][voice_assistant:525]: Client started, streaming microphone
+[16:37:39][D][voice_assistant:504]: State changed from STARTING_PIPELINE to STREAMING_MICROPHONE
+[16:37:39][D][voice_assistant:510]: Desired state set to STREAMING_MICROPHONE
+[16:37:39][D][voice_assistant:627]: Event Type: 1
+[16:37:39][D][voice_assistant:630]: Assist Pipeline running
+
+
+[16:37:39][D][event -> on_start:337]: Got an event ON_START
+[16:37:39][D][voice_assistant:627]: Event Type: 3
+[16:37:39][D][voice_assistant:641]: STT started
+[16:37:39][D][light:036]: 'led_top' Setting:
+[16:37:39][D][light:051]:   Brightness: 100%
+[16:37:39][D][light:059]:   Red: 100%, Green: 100%, Blue: 100%
+[16:37:39][D][light:109]:   Effect: 'listening'
+[16:37:40][D][voice_assistant:627]: Event Type: 11
+[16:37:40][D][voice_assistant:783]: Starting STT by VAD
+
+
+[16:37:41][D][event -> on_stt_vad_start:542]: Got am event ON_STT_VAD_START
+[16:37:42][D][voice_assistant:627]: Event Type: 12
+[16:37:42][D][voice_assistant:787]: STT by VAD end
+[16:37:42][D][voice_assistant:504]: State changed from STREAMING_MICROPHONE to STOP_MICROPHONE
+[16:37:42][D][voice_assistant:510]: Desired state set to AWAITING_RESPONSE
+[16:37:42][D][voice_assistant:504]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+[16:37:42][D][light:036]: 'led_top' Setting:
+[16:37:42][D][light:051]:   Brightness: 70%
+[16:37:42][D][light:059]:   Red: 0%, Green: 20%, Blue: 100%
+[16:37:42][D][light:109]:   Effect: 'processing'
+[16:37:42][D][esp-idf:000]: I (141185) I2S: DMA queue destroyed
+
+[16:37:42][D][voice_assistant:504]: State changed from STOPPING_MICROPHONE to AWAITING_RESPONSE
+[16:37:42][D][voice_assistant:627]: Event Type: 4
+[16:37:42][D][voice_assistant:655]: Speech recognised as: "What time is it now?"
+[16:37:42][D][script:077]: Script 'stt_timeout_to_idle' restarting (mode: restart)
+
+
+[16:37:42][D][event -> on_stt_end:348]: Got an event ON_STT_END
+[16:37:42][D][voice_assistant:627]: Event Type: 5
+[16:37:42][D][voice_assistant:660]: Intent started
+
+
+[16:37:42][D][event -> on_intent_start:532]: Got an event ON_INTENT_START
+[16:37:43][D][voice_assistant:627]: Event Type: 6
+
+
+[16:37:43][D][event -> on_intent_end:537]: Got an event ON_INTENT_END
+[16:37:43][D][voice_assistant:627]: Event Type: 7
+[16:37:43][D][voice_assistant:683]: Response: "It's currently 4:37 PM on September 9, 2024."
+
+
+[16:37:43][D][event -> on_tts_start:372]: Got an event ON_TTS_START
+[16:37:43][D][voice_assistant:627]: Event Type: 98
+[16:37:43][D][voice_assistant:770]: TTS stream start
+[16:37:43][D][esp-idf:000][speaker_task]: I (142276) I2S: DMA Malloc info, datalen=blocksize=512, dma_buf_count=8
+
+[16:37:43][D][voice_assistant:627]: Event Type: 2
+[16:37:43][D][voice_assistant:719]: Assist Pipeline ended
+[16:37:43][D][i2s_audio.speaker:214]: Started I2S Audio Speaker
+[16:37:43][D][light:036]: 'led_top' Setting:
+[16:37:43][D][light:051]:   Brightness: 60%
+[16:37:43][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[16:37:43][D][light:109]:   Effect: 'listening_ww'
+[16:37:43][D][i2s_audio.speaker:218]: Stopping I2S Audio Speaker
+[16:37:43][D][i2s_audio.speaker:230]: Stopped I2S Audio Speaker
+[16:37:44][D][esp-idf:000][speaker_task]: I (142818) I2S: DMA Malloc info, datalen=blocksize=512, dma_buf_count=8
+
+[16:37:44][D][i2s_audio.speaker:214]: Started I2S Audio Speaker
+[16:37:49][D][voice_assistant:627]: Event Type: 99
+[16:37:49][D][voice_assistant:778]: TTS stream end
+[16:37:49][D][voice_assistant:375]: End of audio stream received
+[16:37:49][D][voice_assistant:504]: State changed from STREAMING_RESPONSE to RESPONSE_FINISHED
+[16:37:49][D][voice_assistant:510]: Desired state set to RESPONSE_FINISHED
+[16:37:49][D][i2s_audio.speaker:218]: Stopping I2S Audio Speaker
+[16:37:49][D][i2s_audio.speaker:230]: Stopped I2S Audio Speaker
+[16:37:49][D][voice_assistant:407]: Speaker has finished outputting all audio
+[16:37:49][D][voice_assistant:504]: State changed from RESPONSE_FINISHED to IDLE
+[16:37:49][D][voice_assistant:510]: Desired state set to IDLE
+[16:37:49][D][voice_assistant:504]: State changed from IDLE to START_MICROPHONE
+[16:37:49][D][voice_assistant:510]: Desired state set to START_PIPELINE
+[16:37:49][D][voice_assistant:221]: Starting Microphone
+[16:37:49][D][voice_assistant:504]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[16:37:49][D][esp-idf:000]: I (148379) I2S: DMA Malloc info, datalen=blocksize=1024, dma_buf_count=4
+
+[16:37:49][D][voice_assistant:504]: State changed from STARTING_MICROPHONE to START_PIPELINE
+[16:37:49][D][voice_assistant:275]: Requesting start...
+[16:37:49][D][voice_assistant:504]: State changed from START_PIPELINE to STARTING_PIPELINE
+[16:37:49][D][voice_assistant:525]: Client started, streaming microphone
+[16:37:49][D][voice_assistant:504]: State changed from STARTING_PIPELINE to STREAMING_MICROPHONE
+[16:37:49][D][voice_assistant:510]: Desired state set to STREAMING_MICROPHONE
+[16:37:49][D][voice_assistant:627]: Event Type: 1
+[16:37:49][D][voice_assistant:630]: Assist Pipeline running
+
+
+[16:37:49][D][event -> on_start:337]: Got an event ON_START
+[16:37:49][D][voice_assistant:627]: Event Type: 3
+[16:37:49][D][voice_assistant:641]: STT started
+[16:37:49][D][script:077]: Script 'stt_timeout_to_idle' restarting (mode: restart)
+[16:37:49][D][light:036]: 'led_top' Setting:
+[16:37:49][D][light:051]:   Brightness: 100%
+[16:37:49][D][light:059]:   Red: 100%, Green: 100%, Blue: 100%
+[16:37:49][D][light:109]:   Effect: 'listening'
+[16:37:57][D][voice_assistant:620]: Signaling stop...
+[16:37:57][D][voice_assistant:504]: State changed from STREAMING_MICROPHONE to STOP_MICROPHONE
+[16:37:57][D][voice_assistant:510]: Desired state set to IDLE
+[16:37:57][D][voice_assistant:504]: State changed from STOP_MICROPHONE to STOPPING_MICROPHONE
+[16:37:57][D][esp-idf:000]: I (156475) I2S: DMA queue destroyed
+
+[16:37:57][D][voice_assistant:504]: State changed from STOPPING_MICROPHONE to IDLE
+[16:37:57][D][micro_wake_word:399]: Resetting buffers and probabilities
+[16:37:57][D][micro_wake_word:195]: State changed from IDLE to START_MICROPHONE
+[16:37:57][D][micro_wake_word:107]: Starting Microphone
+[16:37:57][D][micro_wake_word:195]: State changed from START_MICROPHONE to STARTING_MICROPHONE
+[16:37:57][D][esp-idf:000]: I (156529) I2S: DMA Malloc info, datalen=blocksize=1024, dma_buf_count=4
+
+[16:37:57][D][micro_wake_word:195]: State changed from STARTING_MICROPHONE to DETECTING_WAKE_WORD
+[16:37:58][D][voice_assistant:627]: Event Type: 0
+[16:37:58][E][voice_assistant:759]: Error: stt-no-text-recognized - No text recognized
+[16:37:58][D][voice_assistant:627]: Event Type: 2
+[16:37:58][D][voice_assistant:719]: Assist Pipeline ended
+[16:37:58][D][light:036]: 'led_top' Setting:
+[16:37:58][D][light:051]:   Brightness: 60%
+[16:37:58][D][light:059]:   Red: 100%, Green: 0%, Blue: 100%
+[16:37:58][D][light:109]:   Effect: 'listening_ww'
